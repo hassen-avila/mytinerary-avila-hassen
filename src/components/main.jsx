@@ -32,7 +32,9 @@ function Main() {
         modules={[Grid, Pagination]}
         className="mySwiper"
       >
-        {info.map(e=> <SwiperSlide><img className='country' src={e.img} alt={e.name}/></SwiperSlide>)}
+        {info.map(e=> <SwiperSlide>
+          <img className='country cards' src={e.img} alt={e.name}/></SwiperSlide>)}
+       
         </Swiper>
     </> 
     </div>

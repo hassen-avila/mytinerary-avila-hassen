@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+
 
 const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,10 +36,12 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className='navbar-color'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+              <div className='logo'/>
+          </Box>
           <Typography
             variant="h6"
             noWrap
@@ -55,7 +57,6 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -94,7 +95,9 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+              <div className='logo' />
+          </Box>
           <Typography
             variant="h5"
             noWrap
@@ -111,7 +114,6 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -128,7 +130,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://flyclipart.com/thumb2/login-account-icon-account-login-logn-with-png-935680.png" />
+                <Avatar alt="logo-login" src="https://flyclipart.com/thumb2/login-account-icon-account-login-logn-with-png-935680.png" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -160,3 +162,4 @@ const Header = () => {
   );
 };
 export default Header;
+

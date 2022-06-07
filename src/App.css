@@ -7,28 +7,28 @@
   background-color: #d5d6da;
 }
 .logo{
-  background-image: url(./pngwing.com.png);
+  background-image: url(https://deviajeconmigo.com/wp-content/uploads/2021/01/logo-tonto-jose-copy-300x215.png);
   background-size: cover;
   object-fit: cover;
   height: 5rem;
   width: 5rem;
   margin-left: 1rem;
 }
-.title{
-  margin-left: 1rem;
+.title-box{
+  background-image: url(https://st.depositphotos.com/1484771/4898/v/600/depositphotos_48983851-stock-illustration-background-with-vintage-stamps.jpg);
+  padding: 0.5rem;
 }
-.App-header {
-  background-color: #282c34;
+.title-style{
+  margin-left: 1rem;
+  text-align: center;
+}
+.navbar-color {
+  background-color: #282c34 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-.carousel-color{
-  background-color: aqua;
-  height: 30rem;
-  width: 60rem;
 }
 .conteiner-image{
   display: flex;
@@ -39,6 +39,7 @@
   width: 40.5rem;
   height: 14.1rem;
   margin: 1rem;
+  box-shadow: 2px 2px 5px rgb(41, 39, 39);;
 }
 .swiper {
   width: 100%;
@@ -68,8 +69,7 @@
   align-items: center;
 }
 .App{
-  margin-top: 1rem;
-  background-color: black;
+  margin: 1rem;
 }
 .footer-conteiner{
   background-color: rgb(240, 238, 238) ;
