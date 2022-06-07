@@ -1,5 +1,5 @@
-import './App.css';
-import info from './data.js'
+import '../App.css';
+import info from '../data.js'
 
 import React from "react";
 // Import Swiper React components
