@@ -1,7 +1,7 @@
 import './App.css';
 import info from './data.js'
 
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -32,7 +32,7 @@ function Main() {
         modules={[Grid, Pagination]}
         className="mySwiper"
       >
-        {info.map(e=> <SwiperSlide><img className='country' src={e.img}/></SwiperSlide>)}
+        {info.map(e=> <SwiperSlide><img className='country' src={e.img} alt={e.name}/></SwiperSlide>)}
         </Swiper>
     </> 
     </div>
