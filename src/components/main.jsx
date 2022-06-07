@@ -12,30 +12,40 @@ import "swiper/css/pagination";
 
 
 
+
 // import required modules
-import { Grid, Pagination } from "swiper";
+import { Grid, Pagination, Autoplay, Navigation } from "swiper";
 
 console.log(info)
 function Main() {
   return (
     <div className="App">
+      <div className='text-carousel'><h4>Popular MYtineraries</h4></div>
     <>
       <Swiper
+        pagination={{
+        clickable: true,
+        }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+      navigation={true}
+        slidesPerGroup={2}
         slidesPerView={2}
         grid={{
           rows: 2,
         }}
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Grid, Pagination]}
-        className="mySwiper"
+        modules={[Grid, Pagination, Autoplay, Navigation]}
+        className="mySwiper" 
       >
-        {info.map(e=> <SwiperSlide>
-          <img className='country cards' src={e.img} alt={e.name}/></SwiperSlide>)}
-       
-        </Swiper>
+        {info.map(e=> <SwiperSlide className='conteiner-card' key={e.id}>
+          <img className='country' src={e.img} alt={e.name}/>
+          <div className='overlay'>{e.name}</div>
+          </SwiperSlide>
+          )}
+       </Swiper>
     </> 
     </div>
   );

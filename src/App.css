@@ -1,3 +1,9 @@
+*{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  font-family:'Franklin Gothic Medium';
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -7,7 +13,7 @@
   background-color: #d5d6da;
 }
 .logo{
-  background-image: url(https://deviajeconmigo.com/wp-content/uploads/2021/01/logo-tonto-jose-copy-300x215.png);
+  background-image: url(https://www.skyharbor.com/images/default-source/siteimages/iconsmenusystem/internationaltravel.png?sfvrsn=2b8d8788_3);
   background-size: cover;
   object-fit: cover;
   height: 5rem;
@@ -17,11 +23,17 @@
 .title-box{
   background-image: url(https://st.depositphotos.com/1484771/4898/v/600/depositphotos_48983851-stock-illustration-background-with-vintage-stamps.jpg);
   padding: 0.5rem;
+  border-top: red solid 1px;
+  border-bottom: red solid 1px;
 }
 .title-style{
-  margin-left: 1rem;
   text-align: center;
+  margin: 1rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(8, 14, 49);
+  font-size: 3rem;
 }
+
 .navbar-color {
   background-color: #282c34 !important;
   display: flex;
@@ -32,26 +44,22 @@
 }
 .conteiner-image{
   display: flex;
-  flex-wrap: wrap;
 }
+
 .country{
   object-fit: cover;
-  width: 40.5rem;
-  height: 14.1rem;
-  margin: 1rem;
-  box-shadow: 2px 2px 5px rgb(41, 39, 39);;
+  width: 100%;
+  height: 90%;
+  box-shadow: 2px 2px 5px rgb(41, 39, 39);
 }
 .swiper {
   width: 100%;
   height: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
 
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
   height: calc((100% - 30px) / 2) !important;
 
   /* Center slide text vertically */
@@ -72,14 +80,16 @@
   margin: 1rem;
 }
 .footer-conteiner{
-  background-color: rgb(240, 238, 238) ;
+  background-color: rgb(18, 18, 61) ;
   min-height: 10rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .social-conteiner{
   display: flex;
+  justify-content: space-between;
 }
 .logo-instagram{
   background-image: url(https://w7.pngwing.com/pngs/258/274/png-transparent-computer-icons-instagram-black-riviera-instagram-logo-share-icon-black-instagram.png);
@@ -87,6 +97,9 @@
   background-position-x: center;
   height: 3rem;
   width: 3rem;
+  border-radius: 50%;
+  margin-top: 0.2rem;
+  margin-right: 0.4rem;
 }
 .logo-facebook{
   background-image: url(https://w7.pngwing.com/pngs/752/373/png-transparent-computer-icons-facebook-logo-facebook-logo-fine-art.png);
@@ -94,6 +107,9 @@
   background-position-x: center;
   height: 3rem;
   width: 3rem;
+  border-radius: 50%;
+  margin-top: 0.2rem;
+  margin-right: 0.4rem;
 }
 .logo-linkedin{
   background-image: url(https://e7.pngegg.com/pngimages/973/856/png-clipart-linkedin-computer-icons-social-network-user-profile-youtube-nut-miscellaneous-text.png);
@@ -101,4 +117,60 @@
   background-position-x: center;
   height: 3rem;
   width: 3rem;
+  border-radius: 50%;
+  margin-top: 0.2rem;
+}
+.card{
+  text-shadow: 2px 2px 5px rgb(8, 14, 49);
+}
+.conteiner-card{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(69, 94, 94);
+  color: white;
+}
+.slogan{
+  text-align: center;
+  margin: 1rem;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(8, 14, 49);
+  font-size: 2rem;
+}
+.text-carousel{
+  text-align: center;
+  margin: 1rem;
+  background-color: #282c34;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+.social-text{
+  text-align: center;
+  color: white;
+}
+.home-icon{
+  background-image: url(https://w7.pngwing.com/pngs/396/796/png-transparent-home-house-lia-space-button-angle-logo-stock-photography.png);
+  background-size: cover;
+  background-position-x: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  margin-right: 0.3rem;
+}
+.travel-icon{
+  background-image: url(https://i.pinimg.com/originals/a2/03/e0/a203e010098c858625f1ffbbfd2d4104.jpg);
+  background-size: cover;
+  background-position-x: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.footer-logo-conteiner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-footer{
+  margin: 1rem;
 }
