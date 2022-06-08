@@ -221,3 +221,7 @@ a{
   background-color: rgba(107, 186, 255, 0.705);
   width: 100%;
 }
+.rights-reserved{
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
