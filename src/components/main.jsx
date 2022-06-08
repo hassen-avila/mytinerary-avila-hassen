@@ -9,20 +9,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import "swiper/css/navigation"
 
 
 
 
 // import required modules
-import { Grid, Pagination, Autoplay, Navigation } from "swiper";
+import { Grid, Pagination, Autoplay, Navigation} from "swiper";
 
-console.log(info)
 function Main() {
   return (
     <div className="App">
       <div className='text-carousel'><h4>Popular MYtineraries</h4></div>
     <>
-      <Swiper
+      <Swiper 
         pagination={{
         clickable: true,
         }}
@@ -30,7 +30,7 @@ function Main() {
           delay: 2500,
           disableOnInteraction: false,
         }}
-      navigation={true}
+        navigation={true}
         slidesPerGroup={2}
         slidesPerView={2}
         grid={{
@@ -42,7 +42,8 @@ function Main() {
       >
         {info.map(e=> <SwiperSlide className='conteiner-card' key={e.id}>
           <img className='country' src={e.img} alt={e.name}/>
-          <div className='overlay'>{e.name}</div>
+          <div>{e.name}</div>
+
           </SwiperSlide>
           )}
        </Swiper>
