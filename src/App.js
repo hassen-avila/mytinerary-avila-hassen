@@ -1,11 +1,11 @@
 import React from 'react';
 import './index.css';
-import Header from './components/navbar';
-import Title from './components/title'
-import Footer from './components/footer'
+import Header from './components/NavBar';
+import Title from './components/Title'
+import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom';
-import Index from './pages/index';
-import Cities from './pages/cities';
+import Index from './pages/Index';
+import Cities from './pages/Cities';
 
 export default function App(){
 

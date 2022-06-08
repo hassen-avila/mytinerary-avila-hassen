@@ -1,8 +1,8 @@
 import React from 'react';
 import '../index.css';
-import Slogan from '../components/slogan'
-import ButtonC from '../components/buttonCity'
-import Main from '../components/carousel'
+import Slogan from '../components/Slogan'
+import ButtonC from '../components/ButtonCity'
+import Main from '../components/Carousel'
 
 
 export default function Index(){

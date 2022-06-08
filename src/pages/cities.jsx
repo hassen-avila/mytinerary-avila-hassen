@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import Slogan from '../components/slogan'
+import Slogan from '../components/Slogan'
 
 
 export default function Cities(){
