@@ -174,3 +174,23 @@
 .content-footer{
   margin: 1rem;
 }
+.buttonC{
+  background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.text-button{
+  background-color: rgba(223, 236, 223, 0.521);
+}
+.button-style{
+  background-color: rgb(107, 219, 73) !important;
+}
+.button-box{
+  margin-top: 1rem;
+}
