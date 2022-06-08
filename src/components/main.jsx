@@ -20,7 +20,7 @@ import { Grid, Pagination, Autoplay, Navigation} from "swiper";
 function Main() {
   return (
     <div className="App">
-      <div className='text-carousel'><h4>Popular MYtineraries</h4></div>
+      <div className='text-carousel'><h4>Popular MyTinerary</h4></div>
     <>
       <Swiper 
         pagination={{
