@@ -4,6 +4,9 @@
   padding: 0%;
   font-family:'Franklin Gothic Medium';
 }
+a{
+  text-decoration: none;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -21,7 +24,13 @@
   margin-left: 1rem;
 }
 .title-box{
-  background-image: url(https://st.depositphotos.com/1484771/4898/v/600/depositphotos_48983851-stock-illustration-background-with-vintage-stamps.jpg);
+  background-image: url(https://static.vecteezy.com/system/resources/previews/002/510/495/non_2x/holiday-travel-background-free-photo.jpg);
+  background-size: cover;
+  object-fit: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  width: 100%;
   padding: 0.5rem;
   border-top: red solid 1px;
   border-bottom: red solid 1px;
@@ -30,12 +39,12 @@
   text-align: center;
   margin: 1rem;
   color: rgb(0, 0, 0);
-  text-shadow: 2px 2px 5px rgb(8, 14, 49);
+  text-shadow: 2px 2px 5px rgb(58, 87, 255);
   font-size: 3rem;
 }
 
 .navbar-color {
-  background-color: #282c34 !important;
+  background-color: rgba(62, 62, 161, 0.966) !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,8 +89,7 @@
   margin: 1rem;
 }
 .footer-conteiner{
-  background-color: rgb(18, 18, 61) ;
-  min-height: 10rem;
+  background-color: rgba(62, 62, 161, 0.966) ;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -126,7 +134,7 @@
 .conteiner-card{
   display: flex;
   flex-direction: column;
-  background-color: rgb(69, 94, 94);
+  background-color: rgba(47, 79, 221, 0.788);
   color: white;
 }
 .slogan{
@@ -139,7 +147,7 @@
 .text-carousel{
   text-align: center;
   margin: 1rem;
-  background-color: #282c34;
+  background-color: #095afc80;
   color: rgb(255, 255, 255);
   font-size: 2rem;
 }
@@ -176,7 +184,8 @@
 }
 .buttonC{
   background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
-  object-fit: contain;
+  background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   height: 15rem;
   display: flex;
@@ -193,4 +202,22 @@
 }
 .button-box{
   margin-top: 1rem;
+}
+.cities-page{
+  background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+  background-size: cover;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: crimson;
+}
+.cities-text{
+  background-color: rgba(107, 186, 255, 0.705);
+  width: 100%;
 }

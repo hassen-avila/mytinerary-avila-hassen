@@ -11,10 +11,19 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {Link as LinkRouter} from "react-router-dom"
 
 
-const pages = ['Home', 'Cities'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [{
+  name: 'Home',
+  to:'/index',
+},
+{
+name:'Cities',
+to:'/Cities',
+},
+];
+const settings = ['Sign in', 'Log in'];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -88,10 +97,12 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page,index) => (
+                <LinkRouter key={index}  to={page.to} onClick={handleCloseNavMenu}>
+                <MenuItem >
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
+                </LinkRouter>
               ))}
             </Menu>
           </Box>
@@ -116,14 +127,17 @@ const Header = () => {
           >
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            {pages.map((page, index) => (
+              <LinkRouter
+                key={index}
+                to={page.to}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+               
               >
-                {page}
-              </Button>
+                <Button  sx={{ my: 2, color: 'white', display: 'block' }}>
+                {page.name}
+                </Button>
+              </LinkRouter>
             ))}
           </Box>
 

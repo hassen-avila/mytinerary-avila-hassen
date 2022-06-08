@@ -1,6 +1,7 @@
 import '../App.css';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import {Link as LinkRouter} from "react-router-dom"
 
 export default function ButtonC() {
   return (
@@ -12,7 +13,7 @@ export default function ButtonC() {
           </div>
           <div className='button-box'>
             <Stack direction="row" spacing={2}>
-            <Button  variant="contained" className='button-style' >Show me!!</Button>
+            <LinkRouter to='/Cities'><Button  variant="contained" className='button-style' >Show me!!</Button></LinkRouter>
             </Stack>
             </div>
           
