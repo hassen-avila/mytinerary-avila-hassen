@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.css';
-import Header from './components/NavBar';
-import Title from './components/Title'
-import Footer from './components/Footer'
+import Header from './component/NavBar';
+import Title from './component/Title'
+import Footer from './component/Footer'
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
 import Cities from './pages/Cities';
