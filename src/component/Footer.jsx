@@ -33,7 +33,7 @@ function Footer(){
                     <p>🗺 Direction: Cordoba - Argentina</p>
                 </div>
             </div>
-            <div className='rights-reserved'><p className='social-text'>©All rights reserved - Created by Hassen Avila</p></div>
+            <div className='rights-reserved'><p className='social-text'>©All rights reserved - Created by Hassen Avila - Cohort 28</p></div>
             </div>
         
        
