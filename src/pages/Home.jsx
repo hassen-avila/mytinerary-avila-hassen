@@ -5,7 +5,7 @@ import ButtonC from '../component/ButtonCity'
 import Main from '../component/Carousel'
 
 
-export default function Index(){
+export default function Home(){
 
 return(
   <div>
