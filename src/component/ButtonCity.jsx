@@ -1,12 +1,12 @@
-import '../App.css';
+import '../style/buttonCity.css';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import {Link as LinkRouter} from "react-router-dom"
 
-export default function ButtonC() {
+export default function ButtonCity() {
   return (
       <div className='buttonC'>
-          <div>
+          <div className='text-button-box'>
               <h3 className='text-button'>Why is Travel Important?</h3>
               <p className='text-button'>One of the best things you can do for your mental health every now and again, especially as a busy college student with an evening job or a young professional working 12-hour shifts, is to disconnect in order to recharge.</p>
               <p className='text-button'>If you want to enjoy your life, click below</p>

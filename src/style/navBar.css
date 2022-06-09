@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family:'Franklin Gothic Medium';
+  }
+.navbar-color {
+    background: linear-gradient(to bottom,  rgba(0, 0, 0, 0.842) 7%,rgba(0, 0, 0, 0.63) 30%,rgba(255, 255, 255, 0) 100%);
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    box-shadow: none !important;
+  }
+  .logo{
+    background-image: url(https://www.skyharbor.com/images/default-source/siteimages/iconsmenusystem/internationaltravel.png?sfvrsn=2b8d8788_3);
+    background-size: cover;
+    object-fit: cover;
+    height: 5rem;
+    width: 5rem;
+    margin-left: 1rem;
+  }
+  

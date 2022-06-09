@@ -1,0 +1,39 @@
+.buttonC {
+    background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .text-button{
+    background-color: rgba(255, 255, 255, 0.521);
+    width: 80%;
+  }
+  .button-style{
+    background-color: rgb(3, 8, 1) !important;
+    width: 12rem;
+  }
+  .button-box{
+    margin-top: 1rem;
+  }
+  .text-button-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (min-width:600px){
+    .text-button{
+      font-size: 1.5rem;
+    }
+  }
+  @media (min-width:400px){
+    .text-button{
+      font-size: 1.2rem;
+    }
+  }

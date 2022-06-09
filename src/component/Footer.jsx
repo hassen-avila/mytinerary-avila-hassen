@@ -5,7 +5,6 @@ function Footer(){
     return(
         <div className='footer-conteiner'>
             <div className='footer-logo-conteiner'>
-            <div className='logo' ></div>
             <div>
                 <LinkRouter to='/index'>
                 <div className='home-icon'></div>

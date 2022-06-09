@@ -15,42 +15,10 @@ a{
   width: 100%;
   background-color: #d5d6da;
 }
-.logo{
-  background-image: url(https://www.skyharbor.com/images/default-source/siteimages/iconsmenusystem/internationaltravel.png?sfvrsn=2b8d8788_3);
-  background-size: cover;
-  object-fit: cover;
-  height: 5rem;
-  width: 5rem;
-  margin-left: 1rem;
-}
-.title-box{
-  background-image: url(https://static.vecteezy.com/system/resources/previews/002/510/495/non_2x/holiday-travel-background-free-photo.jpg);
-  background-size: cover;
-  object-fit: cover;
-  background-position-x: center;
-  background-position-y: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  padding: 0.5rem;
-  border-top: red solid 1px;
-  border-bottom: red solid 1px;
-}
-.title-style{
-  text-align: center;
-  margin: 1rem;
-  color: rgb(0, 0, 0);
-  text-shadow: 2px 2px 5px rgb(58, 87, 255);
-  font-size: 3rem;
-}
 
-.navbar-color {
-  background-color: rgba(62, 62, 161, 0.966) !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
+
+
 .conteiner-image{
   display: flex;
 }
@@ -137,13 +105,7 @@ a{
   background-color: rgba(47, 79, 221, 0.788);
   color: white;
 }
-.slogan{
-  text-align: center;
-  margin: 1rem;
-  color: rgb(0, 0, 0);
-  text-shadow: 2px 2px 5px rgb(8, 14, 49);
-  font-size: 2rem;
-}
+
 .text-carousel{
   text-align: center;
   margin: 1rem;
@@ -182,27 +144,8 @@ a{
 .content-footer{
   margin: 1rem;
 }
-.buttonC{
-  background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
-  background-size: cover;
-  object-fit: cover;
-  background-repeat: no-repeat;
-  height: 15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-}
-.text-button{
-  background-color: rgba(223, 236, 223, 0.521);
-}
-.button-style{
-  background-color: rgb(107, 219, 73) !important;
-}
-.button-box{
-  margin-top: 1rem;
-}
+
+
 .cities-page{
   background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
   background-size: cover;

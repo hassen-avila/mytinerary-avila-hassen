@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from "react-router-dom"
+import '../style/navBar.css'
 
 
 const pages = [{
@@ -45,7 +46,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" className='navbar-color'>
+    <AppBar position="fixed" className='navbar-color'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
