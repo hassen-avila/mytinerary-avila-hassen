@@ -1,5 +1,6 @@
-import '../App.css';
+import '../style/footer.css';
 import {Link as LinkRouter} from "react-router-dom"
+
   
 function Footer(){
     return(

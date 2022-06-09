@@ -13,7 +13,6 @@
   }
   .text-button{
     background-color: rgba(255, 255, 255, 0.521);
-    width: 80%;
   }
   .button-style{
     background-color: rgb(3, 8, 1) !important;
@@ -27,13 +26,27 @@
     flex-direction: column;
     align-items: center;
   }
+  @media (min-width:1000px){
+    .text-button{
+      font-size: 1.7rem;
+      width: 60%;
+    }
+  }
   @media (min-width:600px){
     .text-button{
       font-size: 1.5rem;
+      width: 70%;
     }
   }
   @media (min-width:400px){
     .text-button{
       font-size: 1.2rem;
+      width: 80%;
+    }
+  }
+  @media (max-width:400px){
+    .text-button{
+      font-size: 1.2rem;
+      width: 100%;
     }
   }

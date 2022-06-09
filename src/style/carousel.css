@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family:'Franklin Gothic Medium';
+}
+.App{
+    margin: 1rem;
+}
+.text-carousel{
+    text-align: center; 
+    margin: 1rem;
+    background-color: #095afc80;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
+.country{
+    object-fit: cover;
+    width: 100%;
+    height: 90%;
+    box-shadow: 2px 2px 5px rgb(41, 39, 39);
+}
+.conteiner-card{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(47, 79, 221, 0.788);
+    color: white;
+}
+.swiper {
+    width: 100%;
+    height: 30rem;
+  
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    height: calc((100% - 30px) / 2) !important;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}

@@ -1,4 +1,4 @@
-import '../App.css';
+import '../style/carousel.css';
 import info from '../data.js'
 
 import React from "react";

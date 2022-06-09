@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family:'Franklin Gothic Medium';
+  }
+.footer-conteiner{
+    background-color: rgba(62, 62, 161, 0.966) ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .footer-logo-conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-icon{
+    background-image: url(https://w7.pngwing.com/pngs/396/796/png-transparent-home-house-lia-space-button-angle-logo-stock-photography.png);
+    background-size: cover;
+    background-position-x: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    margin-right: 0.3rem;
+  }
+  .travel-icon{
+    background-image: url(https://i.pinimg.com/originals/a2/03/e0/a203e010098c858625f1ffbbfd2d4104.jpg);
+    background-size: cover;
+    background-position-x: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  .social-text{
+    text-align: center;
+    color: white;
+  }
+  .content-footer{
+    margin: 1rem;
+  }
+  .social-conteiner{
+    display: flex;
+    justify-content: space-between;
+  }  
+  .cities-page{
+    background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+    background-size: cover;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: crimson;
+  }
+  .cities-text{
+    background-color: rgba(107, 186, 255, 0.705);
+    width: 100%;
+  }
+  .rights-reserved{
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .logo-instagram{
+    background-image: url(https://w7.pngwing.com/pngs/258/274/png-transparent-computer-icons-instagram-black-riviera-instagram-logo-share-icon-black-instagram.png);
+    background-size: cover;
+    background-position-x: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+    margin-right: 0.4rem;
+  }
+  .logo-facebook{
+    background-image: url(https://w7.pngwing.com/pngs/752/373/png-transparent-computer-icons-facebook-logo-facebook-logo-fine-art.png);
+    background-size: cover;
+    background-position-x: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+    margin-right: 0.4rem;
+  }
+  .logo-linkedin{
+    background-image: url(https://e7.pngegg.com/pngimages/973/856/png-clipart-linkedin-computer-icons-social-network-user-profile-youtube-nut-miscellaneous-text.png);
+    background-size: cover;
+    background-position-x: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-top: 0.2rem;
+  }
+  
