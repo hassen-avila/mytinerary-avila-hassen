@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../style/cardCity.css'
+import '../App.css'
 import Cities from '../data.js'
 import { useState } from 'react';
 
@@ -14,10 +15,9 @@ import { useState } from 'react';
 
 export default function CardCity() {
     const [filter, setFilter] = useState('');
-
     return (
         
-        <div className='card-city '>
+        <div className='card-city'>
     <p>
     Type to filter the list:
     <input id="filter"
@@ -27,7 +27,8 @@ export default function CardCity() {
       onChange={event => setFilter(event.target.value)}
     />
   </p>
-        {Cities.filter((e)=>e.startsWith(filter) && filter == "").map(city=>
+        
+        {Cities.map(city=>
       
             <Card sx={{ maxWidth: 800 }} className='card' key={city.id}>
                     <CardMedia
@@ -40,7 +41,7 @@ export default function CardCity() {
                 <Typography gutterBottom variant="h5" component="div" className='title-cards'>
                 {city.name} - {city.country}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" className='text-center'>
                 {city.description}
                 </Typography>
             </CardContent>

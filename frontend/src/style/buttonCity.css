@@ -1,5 +1,5 @@
 .buttonC {
-    background-image: url(https://www.65ymas.com/uploads/s1/38/76/66/viajar.jpeg);
+
     background-size: cover;
     object-fit: cover;
     background-repeat: no-repeat;
@@ -9,10 +9,10 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-top: 1rem;
+
   }
   .text-button{
-    background-color: rgba(255, 255, 255, 0.521);
+    background-color: rgba(255, 255, 255, 0.836);
   }
   .button-style{
     background-color: rgb(3, 8, 1) !important;
@@ -26,6 +26,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   @media (min-width:1000px){
     .text-button{
       font-size: 1.7rem;
@@ -49,4 +50,37 @@
       font-size: 1.2rem;
       width: 100%;
     }
+  }
+
+  .ov-btn-grow-skew-reverse {
+    background: rgb(255, 255, 255); /* color de fondo */
+    color: #4741d7; /* color de fuente */
+    border: 2px solid #4741d7; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 3px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .ov-btn-grow-skew-reverse:hover {
+    color: #fff;/* color de fuente hover */
+  }
+  .ov-btn-grow-skew-reverse::after {
+    content: "";
+    background: #000000; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(45deg) scale(0, 1);
+    transition: all 0.3s ease;
+  }
+  .ov-btn-grow-skew-reverse:hover::after {
+    transition: all 0.3s ease-out;
+    transform: skewX(45deg) scale(1, 1);
   }
