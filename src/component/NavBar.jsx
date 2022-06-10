@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from "react-router-dom"
 import '../style/navBar.css'
-
+import '../App.css'
 
 const pages = [{
   name: 'Home',

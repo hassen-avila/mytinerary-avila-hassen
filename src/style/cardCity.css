@@ -1,0 +1,18 @@
+.card-city{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card{
+    width: 60%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-cards{
+    text-align: center;
+}
+.button{
+    color: rgb(38, 149, 214) !important;
+}

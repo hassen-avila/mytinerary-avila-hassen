@@ -1,6 +1,6 @@
 import '../style/carousel.css';
-import info from '../data.js'
-
+import Cities from '../data.js'
+import '../App.css'
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,7 +19,7 @@ import { Grid, Pagination, Autoplay, Navigation} from "swiper";
 
 export default function Carousel() {
   return (
-    <div className="App">
+    <div className="App ">
       <div className='text-carousel'><h4>Popular MyTinerary</h4></div>
     <>
       <Swiper 
@@ -40,9 +40,9 @@ export default function Carousel() {
         modules={[Grid, Pagination, Autoplay, Navigation]}
         className="mySwiper" 
       >
-        {info.map(e=> <SwiperSlide className='conteiner-card' key={e.id}>
-          <img className='country' src={e.img} alt={e.name}/>
-          <div>{e.name}</div>
+        {Cities.map(city=> <SwiperSlide className='conteiner-card' key={city.id}>
+          <img className='country' src={city.img} alt={city.name}/>
+          <div>{city.name}</div>
 
           </SwiperSlide>
           )}

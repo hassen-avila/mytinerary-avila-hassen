@@ -1,10 +1,10 @@
 import '../style/footer.css';
 import {Link as LinkRouter} from "react-router-dom"
-
+import '../App.css'
   
 function Footer(){
     return(
-        <div className='footer-conteiner'>
+        <div className='footer-conteiner '>
             <div className='footer-logo-conteiner'>
             <div>
                 <LinkRouter to='/index'>
@@ -12,12 +12,14 @@ function Footer(){
                 </LinkRouter>
             </div>
             <div>
-            <LinkRouter to='/Cities'>
+            <LinkRouter to='/Cities' 
+            
+            >
                 <div className='travel-icon'></div>
             </LinkRouter>
             </div>
             </div>
-            <div className='content-footer'>
+            <div className='content-footer' >
                 <h4 className='social-text'>Social Networks</h4>
             <div className='social-conteiner'>
                 <a href="https://www.instagram.com/avila_hassen/" target="_blank"  rel="noreferrer"><div className='logo-instagram'></div></a>

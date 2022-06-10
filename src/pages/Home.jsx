@@ -8,8 +8,7 @@ import Carousel from '../component/Carousel'
 export default function Home(){
 
 return(
-  <div>
-
+  <div>   
     <ButtonCity/>
     <Carousel/>  
   </div>

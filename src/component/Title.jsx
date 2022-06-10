@@ -1,6 +1,6 @@
 import '../style/title.css';
 import React from "react";
-
+import '../App.css'
 
 function Title(){
     return(

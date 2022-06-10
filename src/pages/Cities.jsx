@@ -1,13 +1,12 @@
 import React from 'react';
 import '../index.css';
+import CardCity from '../component/CardCity.jsx';
 
 
-
-export default function Cities(){
-
-return(
-  <div >
-      <div className='cities-page'><h3 className='cities-text'>Ups! We are working on this page, come back soon...</h3></div>
-  </div>
-);
+export default function  Cities() {
+  return (
+      <div>
+    <CardCity/>
+    </div>
+  );
 }
