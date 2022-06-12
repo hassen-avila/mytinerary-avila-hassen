@@ -19,7 +19,7 @@ import { Grid, Pagination, Autoplay, Navigation} from "swiper";
 
 export default function Carousel() {
   return (
-    <div className="App ">
+    <div className="App">
       <div className='text-carousel'><h4>Popular MyTinerary</h4></div>
     <>
       <Swiper 

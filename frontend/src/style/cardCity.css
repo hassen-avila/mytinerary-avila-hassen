@@ -19,5 +19,9 @@
     text-align: center;
 }
 .button{
-    color: rgb(255, 0, 0) !important;
+    color: #ff0000 !important;
+}
+.input-search{
+    width: 80%;
+    height: 2rem;
 }

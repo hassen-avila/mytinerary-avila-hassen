@@ -8,27 +8,38 @@ import Typography from '@mui/material/Typography';
 import '../style/cardCity.css'
 import '../App.css'
 import Cities from '../data.js'
-import { useState } from 'react';
+
 
 
 
 
 export default function CardCity() {
-    const [filter, setFilter] = useState('');
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+  console.log(searchTerm);
+  React.useEffect(() => {
+    let results = Cities.filter(city =>
+      city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
+  
     return (
+    <div className='card-city'>
+      <input
+        type="text"
+        placeholder="Search for a particular city..."
+        value={searchTerm}
+        onChange={handleChange}
+        className="input-search"
+      />
         
-        <div className='card-city'>
-    <p>
-    Type to filter the list:
-    <input id="filter"
-      name="filter"
-      type="text"
-      value={filter}
-      onChange={event => setFilter(event.target.value)}
-    />
-  </p>
+        {
         
-        {Cities.map(city=>
+        searchResults.map(city=>
       
             <Card sx={{ maxWidth: 800 }} className='card' key={city.id}>
                     <CardMedia
@@ -50,7 +61,8 @@ export default function CardCity() {
             </CardActions>
         
             </Card>
-      )}
+      )
+      }
       </div>
       )}
   
