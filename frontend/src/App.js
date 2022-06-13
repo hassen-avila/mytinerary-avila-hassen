@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Cities from './pages/Cities';
 import ScrollToTop from "react-scroll-to-top";
-
+import Details from './component/Detail';
 
 
 export default function App(){
@@ -19,7 +19,8 @@ return(
     <Routes>
       <Route path='/index' element={<Home/>}/>
       <Route path='/' element={<Home/>}/>
-      <Route path='/Cities' element={<Cities/>}/>
+      <Route path='/cities' element={<Cities/>}/>
+      <Route path='/city/:id' element={<Details/>} />
     </Routes>
     <ScrollToTop smooth color="#000" />
     <Footer/>

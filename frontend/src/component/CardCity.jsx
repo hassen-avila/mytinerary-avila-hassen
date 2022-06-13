@@ -3,12 +3,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../style/cardCity.css'
 import '../App.css'
 import Cities from '../data.js'
-
+import {Link as LinkRouter} from "react-router-dom"
 
 
 
@@ -19,7 +18,6 @@ export default function CardCity() {
   const handleChange = event => {
     setSearchTerm(event.target.value);
   };
-  console.log(searchTerm);
   React.useEffect(() => {
     let results = Cities.filter(city =>
       city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
@@ -57,7 +55,7 @@ export default function CardCity() {
                 </Typography>
             </CardContent>
             <CardActions>
-            <Button className='button' size="small">More information</Button>
+            <LinkRouter to={`/city/${city.id}`} className='button' size="small">More information</LinkRouter>
             </CardActions>
         
             </Card>
