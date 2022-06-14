@@ -1,0 +1,26 @@
+.conteiner{
+    background-image: url(https://tecnohotelnews.com/wp-content/uploads/2020/05/pablo-heimplatz-EAvS-4KnGrk-unsplash.jpg);
+    background-size: cover;
+    background-position-y: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+}
+.text{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.74);
+    padding: 0.3rem;
+}
+
+@media (max-width:600px){
+    .text{
+        font-size: 1.5rem;
+    }
+}
+@media (max-width:380px){
+    .text{
+        font-size: 1rem;
+    }
+}

@@ -4,40 +4,20 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import {Link as LinkRouter} from "react-router-dom"
 import '../style/cardCity.css'
 import '../App.css'
-import Cities from '../data.js'
-import {Link as LinkRouter} from "react-router-dom"
 
 
 
+export default function CardCity(props) {
 
-export default function CardCity() {
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
-  };
-  React.useEffect(() => {
-    let results = Cities.filter(city =>
-      city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
-    );
-    setSearchResults(results);
-  }, [searchTerm]);
-  
+let card= props.cityFilter
     return (
-    <div className='card-city'>
-      <input
-        type="text"
-        placeholder="Search for a particular city..."
-        value={searchTerm}
-        onChange={handleChange}
-        className="input-search"
-      />
+    <div className='card-city'>   
+         {
         
-        {
-        
-        searchResults.map(city=>
+        card.map(city=>
       
             <Card sx={{ maxWidth: 800 }} className='card' key={city.id}>
                     <CardMedia
@@ -60,7 +40,7 @@ export default function CardCity() {
         
             </Card>
       )
-      }
+      }  
       </div>
       )}
   

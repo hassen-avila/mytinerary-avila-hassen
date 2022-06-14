@@ -5,7 +5,7 @@ import '../App.css'
 function Footer(){
     return(
         <div className='footer-conteiner '>
-            <div className='footer-logo-conteiner'>
+            <div className='footer-logo-conteiner footer-cont'>
             <div>
                 <LinkRouter to='/index'>
                 <div className='home-icon'></div>
@@ -19,7 +19,7 @@ function Footer(){
             </LinkRouter>
             </div>
             </div>
-            <div className='content-footer' >
+            <div className='content-footer footer-cont' >
                 <h4 className='social-text'>Social Networks</h4>
             <div className='social-conteiner'>
                 <a href="https://www.instagram.com/avila_hassen/" target="_blank"  rel="noreferrer"><div className='logo-instagram'></div></a>
@@ -27,12 +27,12 @@ function Footer(){
                 <a href="https://www.linkedin.com/in/hassen-avila-quintero-9268551b2/" target="_blank"  rel="noreferrer"><div className='logo-linkedin'></div></a>
             </div>
             </div>
-            <div className='content-footer'>
+            <div className='content-footer footer-cont'>
                 <h4 className='social-text'>Contact us:</h4>
                 <div className='social-text'>
-                    <p>☎ Number: 11-111-111</p>
-                    <p>📧 Email: <a className='social-text' href="mailto: example@gmail.com">example@gmail.com</a></p>
-                    <p>🗺 Direction: Cordoba - Argentina</p>
+                    
+                    <p>⬇ Email ⬇ <a className='social-text' href="mailto: example@gmail.com">example@gmail.com</a></p>
+                    
                 </div>
             </div>
             <div className='rights-reserved'><p className='social-text'>©All rights reserved - Created by Hassen Avila - Cohort 28</p></div>

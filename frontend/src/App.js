@@ -5,7 +5,7 @@ import Title from './component/Title'
 import Footer from './component/Footer'
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Cities from './pages/CitiesPage';
+import CitiesCard from './pages/CitiesPage';
 import ScrollToTop from "react-scroll-to-top";
 import Details from './component/Detail';
 
@@ -19,7 +19,7 @@ return(
     <Routes>
       <Route path='/index' element={<Home/>}/>
       <Route path='/' element={<Home/>}/>
-      <Route path='/cities' element={<Cities/>}/>
+      <Route path='/cities' element={<CitiesCard/>}/>
       <Route path='/city/:id' element={<Details/>} />
     </Routes>
     <ScrollToTop smooth color="#000" />

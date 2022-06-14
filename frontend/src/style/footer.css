@@ -8,8 +8,9 @@
     background-color: rgba(0, 0, 0, 0.925) ;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    padding-top: 1rem;
   }
   .footer-logo-conteiner{
     display: flex;
@@ -96,5 +97,8 @@
     width: 3rem;
     border-radius: 50%;
     margin-top: 0.2rem;
+  }
+  .footer-cont{
+    width: 10rem;
   }
   
