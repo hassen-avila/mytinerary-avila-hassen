@@ -10,8 +10,8 @@ import Typography from '@mui/material/Typography';
 
 export default function Details(){
     const{id}=useParams()
-    console.log(id)
-    let card= Cities.filter(city=> city.id === Number(id))[0]
+    console.log(id) 
+    let card= Cities.find(city=> city.id === Number(id))
     console.log(card);
 
     return(
