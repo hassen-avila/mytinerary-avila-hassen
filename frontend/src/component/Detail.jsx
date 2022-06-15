@@ -1,39 +1,52 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
-import Cities from '../data.js'
+import axios from 'axios'
 import Card from '@mui/material/Card';
 import '../style/detail.css'
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import {Link as LinkRouter} from "react-router-dom"
 
 
 export default function Details(){
+    const [detailsCity, setDetailsCity] = React.useState([]);
     const{id}=useParams()
-    console.log(id) 
-    let card= Cities.find(city=> city.id === Number(id))
-    console.log(card);
-
+    
+    React.useEffect(() => {
+        axios.get(`http://localhost:4000/api/cities/${id}`)
+        .then(res=>(setDetailsCity(res.data.response.city)))
+      },[]);
+      
+console.log(detailsCity);
     return(
+        
         <div className='conteiner'>
-      <Card sx={{ maxWidth: 800 }} className='card' key={card.id}>
+            {detailsCity &&
+       <Card sx={{ maxWidth: 800 }} className='card' key={detailsCity._id}>
                     <CardMedia
                     component="img"
                     height="200"
-                    image={card.img}
-                    alt={card.name}
+                    image={detailsCity.image}
+                    alt={detailsCity.name}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div" className='title-cards'>
-                {card.name} - {card.country}
+                {detailsCity.name} - {detailsCity.country}
                 </Typography>
                 <Typography variant="body2" className='text-center'>
-                {card.description}
+                {detailsCity.description}
+                <h1>Under Construc  tion</h1>
                 </Typography>
+                
             </CardContent>
-
+            
         
-            </Card>
+            </Card> 
+            
+            }
+            <LinkRouter to='/Cities'><div className='ov-btn-grow-skew-reverse'>Back to Cities</div>
+            </LinkRouter>
 </div>
     )
 }

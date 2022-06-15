@@ -1,8 +1,9 @@
 import React from 'react';
+import axios from 'axios'
 import '../index.css';
 import '../style/citiesPage.css'
 import CardCity from '../component/CardCity.jsx';
-import Cities from '../data.js'
+
 import ResultNone from '../component/ResultNone';
 
 
@@ -13,11 +14,15 @@ export default function  CitiesCard() {
     setSearchTerm(event.target.value);
   };
   React.useEffect(() => {
-    let results = Cities.filter(city =>
-      city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
-    );
-    setSearchResults(results);
-  }, [searchTerm]);
+    axios.get('http://localhost:4000/api/cities')
+    .then(res=>(setSearchResults(res.data.response.cities)))
+  
+  }, []);
+  let results = searchResults.filter(city =>
+    city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
+  ) ;
+
+  
   return (
     <div className='conteiner-cardsText'>
       <div className='input-text'>
@@ -30,7 +35,7 @@ export default function  CitiesCard() {
       />
     </div>
     <div>
-    {searchResults.length>0 ? <CardCity cityFilter={searchResults}/> : <ResultNone/>}
+    {results.length>0 ? <CardCity cityFilter={results}/> : <ResultNone/>}
     </div>
     </div>
   );

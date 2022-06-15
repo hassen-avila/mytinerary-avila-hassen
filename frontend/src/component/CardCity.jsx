@@ -19,11 +19,11 @@ let card= props.cityFilter
         
         card.map(city=>
       
-            <Card sx={{ maxWidth: 800 }} className='card' key={city.id}>
+            <Card sx={{ maxWidth: 800 }} className='card' key={city._id}>
                     <CardMedia
                     component="img"
                     height="200"
-                    image={city.img}
+                    image={city.image}
                     alt={city.name}
             />
             <CardContent>
@@ -35,7 +35,7 @@ let card= props.cityFilter
                 </Typography>
             </CardContent>
             <CardActions>
-            <LinkRouter to={`/city/${city.id}`} className='button' size="small">More information</LinkRouter>
+            <LinkRouter to={`/city/${city._id}`} className='' size="small">More information</LinkRouter>
             </CardActions>
         
             </Card>

@@ -25,10 +25,9 @@ const  citiesControllers ={
         let city
         let error = null
         try{
-            city= await new City({
+            city= await City.findOne({
                 _id:id
             })
-            .save()
         }
         catch(err) {
             err = error
@@ -81,6 +80,8 @@ const  citiesControllers ={
             error: error
         })
     },
+
+
     removeCity: async (req,res) =>{
         const id=req.params.id
         let city
@@ -104,7 +105,6 @@ const  citiesControllers ={
         try {
             data.map(async (item) => {
                 await new City({
-                    id: item.id,
                     name: item.name,
                     country: item.country,
                     description: item.description,
