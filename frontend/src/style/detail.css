@@ -38,3 +38,7 @@
   .btn2:hover::before{
     height: 100%;
   }
+  .detail-text{
+      text-align: center;
+      color: red;
+  }

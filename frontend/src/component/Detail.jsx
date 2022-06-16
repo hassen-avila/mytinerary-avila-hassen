@@ -16,9 +16,8 @@ export default function Details(){
     React.useEffect(() => {
         axios.get(`http://localhost:4000/api/cities/${id}`)
         .then(res=>(setDetailsCity(res.data.response.city)))
-      },[]);
+      },[id]);
       
-console.log(detailsCity);
     return(
         
         <div className='conteiner'>
@@ -36,9 +35,8 @@ console.log(detailsCity);
                 </Typography>
                 <Typography variant="body2" className='text-center'>
                 {detailsCity.description}
-                <h1>Under Construc  tion</h1>
                 </Typography>
-                
+                <h1 className='detail-text'>Under Construction</h1> 
             </CardContent>
             
         

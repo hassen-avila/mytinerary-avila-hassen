@@ -25,6 +25,5 @@ return(
     <ScrollToTop smooth color="#000" />
     <Footer/>
   </div>
-  
 );
 } 

@@ -12,7 +12,7 @@ export default function  CitiesCard() {
   const [searchResults, setSearchResults] = React.useState([]);
   const handleChange = event => {
     setSearchTerm(event.target.value);
-  };
+  };      
   React.useEffect(() => {
     axios.get('http://localhost:4000/api/cities')
     .then(res=>(setSearchResults(res.data.response.cities)))

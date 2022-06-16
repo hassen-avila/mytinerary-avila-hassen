@@ -30,12 +30,9 @@ let card= props.cityFilter
                 <Typography gutterBottom variant="h5" component="div" className='title-cards'>
                 {city.name} - {city.country}
                 </Typography>
-                <Typography variant="body2" className='text-center'>
-                {city.description}
-                </Typography>
             </CardContent>
             <CardActions>
-            <LinkRouter to={`/city/${city._id}`} className='' size="small">More information</LinkRouter>
+            <LinkRouter to={`/city/${city._id}`}><div className='ov-btn-grow-skew-reverse'>More Information</div></LinkRouter>
             </CardActions>
         
             </Card>
