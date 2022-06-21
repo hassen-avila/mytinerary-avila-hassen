@@ -2,6 +2,14 @@
     display: flex;
     justify-content: center;
 }
+.card{
+  width: 60% !important;
+}
+.itinerary{
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.568);
+  color: white;
+}
 .button{
     background-color: black;
     height: 5rem;

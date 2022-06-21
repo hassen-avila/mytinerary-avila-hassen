@@ -100,7 +100,7 @@ const  citiesControllers ={
 
     multiplesCities: async (req, res) => {
         let city = []
-        const data = req.body.data //almaceno en la constante data la informacion que le pedi al body
+        const data = req.body.data
         let error = null
         try {
             data.map(async (item) => {
