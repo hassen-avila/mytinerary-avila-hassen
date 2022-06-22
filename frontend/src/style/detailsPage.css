@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0% !important;
+    padding: 0%;
+    font-family:'Franklin Gothic Medium';
+}
+.conteiner{
+    background-image: url(https://wp-growpro.s3-eu-west-1.amazonaws.com/media/2020/08/viajes-para-aprender-ingles.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 100% !important;
+    background-color: transparent !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+.more{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255);
+}
+
+.cards{
+    background-color: rgba(255, 255, 255, 0.644) !important;
+    width: 40rem !important;
+}

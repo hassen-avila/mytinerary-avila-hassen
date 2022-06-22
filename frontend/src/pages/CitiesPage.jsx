@@ -1,10 +1,14 @@
 import React from 'react';
-import axios from 'axios'
 import '../index.css';
 import '../style/citiesPage.css'
 import CardCity from '../component/CardCity.jsx';
 
 import ResultNone from '../component/ResultNone';
+
+import {useDispatch , useSelector} from 'react-redux';
+import citiesActions from '../redux/action/cityAction'
+
+
 
 
 export default function  CitiesCard() {
@@ -12,15 +16,17 @@ export default function  CitiesCard() {
   const [searchResults, setSearchResults] = React.useState([]);
   const handleChange = event => {
     setSearchTerm(event.target.value);
-  };      
+  };    
+  
+  const dispatch = useDispatch()
+
   React.useEffect(() => {
-    axios.get('http://localhost:4000/api/cities')
-    .then(res=>(setSearchResults(res.data.response.cities)))
+    dispatch(citiesActions.getCities())
   
   }, []);
-  let results = searchResults.filter(city =>
-    city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase())
-  ) ;
+
+  const citiesRedux = useSelector(store => store.citiesReducer.cities)
+  let results = citiesRedux.filter(city =>city.name.toLowerCase().startsWith(searchTerm.trim().toLowerCase()));
 
   
   return (
