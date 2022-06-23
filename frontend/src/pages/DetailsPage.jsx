@@ -39,6 +39,7 @@ export default function DetailsPage(){
             </Card>
             </div>
             <div>
+                <Itinerary/>
             </div>
             <div>
             <LinkRouter to='/Cities'><div className='ov-btn-grow-skew-reverse'>Back to Cities</div>

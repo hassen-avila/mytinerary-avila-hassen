@@ -7,11 +7,17 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import CitiesCard from './pages/CitiesPage';
 import ScrollToTop from "react-scroll-to-top";
-
+import {useDispatch} from 'react-redux';
+import citiesActions from './redux/action/cityAction'
 import DetailsPage from './pages/DetailsPage';
 
 
+
 export default function App(){
+  const dispatch = useDispatch()
+  React.useEffect(() => {
+    dispatch(citiesActions.getCities())
+  }, []);
 
 return(
   <div>
