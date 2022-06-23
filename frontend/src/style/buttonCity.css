@@ -9,7 +9,6 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-
   }
   .text-button{
     background-color: rgba(255, 255, 255, 0.836);
@@ -19,7 +18,7 @@
     width: 12rem;
   }
   .button-box{
-    margin-top: 1rem;
+    margin-top: 1rem !important;
   }
   .text-button-box{
     display: flex;

@@ -19,7 +19,7 @@ let card= props.cityFilter
         
         card.map(city=>
       
-            <Card sx={{ maxWidth: 800 }} className='card' key={city._id}>
+            <Card sx={{ maxWidth: 800 }} className='cards card' key={city._id}>
                     <CardMedia
                     component="img"
                     height="200"

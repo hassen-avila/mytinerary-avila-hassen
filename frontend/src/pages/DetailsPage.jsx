@@ -14,7 +14,7 @@ import {useParams} from 'react-router-dom';
 
 export default function DetailsPage(){
     const {id} = useParams()
-    console.log(id);
+  
 
     const dispatch= useDispatch()
     React.useEffect(() => {
@@ -42,7 +42,7 @@ export default function DetailsPage(){
             </Card>
             </div>
         
-            
+            <Itinerary id={id}/> 
           
             <div>
             <LinkRouter to='/Cities'><div className='ov-btn-grow-skew-reverse'>Back to Cities</div>
@@ -50,6 +50,6 @@ export default function DetailsPage(){
             </div>
             
             </div>
-           <Itinerary id={id}/> </>
+           </>
             )
         }

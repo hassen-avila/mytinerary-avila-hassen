@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-top: 1rem;
+    padding-top: 1rem !important;
   }
   .footer-logo-conteiner{
     display: flex;
@@ -24,8 +24,8 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    margin-left: 1rem;
-    margin-right: 0.3rem;
+    margin-left: 1rem !important;
+    margin-right: 0.3rem !important;
   }
   .travel-icon{
     background-image: url(https://i.pinimg.com/originals/01/da/4a/01da4aa52ffbd12a2e50d80b8278851f.jpg);
@@ -34,14 +34,14 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    margin-right: 1rem;
+    margin-right: 1rem !important;
   }
   .social-text{
     text-align: center;
     color: white;
   }
   .content-footer{
-    margin: 1rem;
+    margin: 1rem !important;
   }
   .social-conteiner{
     display: flex;
@@ -58,7 +58,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
     color: crimson;
   }
   .cities-text{
@@ -67,7 +67,7 @@
   }
   .rights-reserved{
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem !important;
   }
   .logo-instagram{
     background-image: url(https://w7.pngwing.com/pngs/258/274/png-transparent-computer-icons-instagram-black-riviera-instagram-logo-share-icon-black-instagram.png);
@@ -76,8 +76,8 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    margin-top: 0.2rem;
-    margin-right: 0.4rem;
+    margin-top: 0.2rem !important;
+    margin-right: 0.4rem !important;
   }
   .logo-facebook{
     background-image: url(https://w7.pngwing.com/pngs/752/373/png-transparent-computer-icons-facebook-logo-facebook-logo-fine-art.png);
@@ -86,8 +86,8 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    margin-top: 0.2rem;
-    margin-right: 0.4rem;
+    margin-top: 0.2rem !important;
+    margin-right: 0.4rem !important;
   }
   .logo-linkedin{
     background-image: url(https://e7.pngegg.com/pngimages/973/856/png-clipart-linkedin-computer-icons-social-network-user-profile-youtube-nut-miscellaneous-text.png);
@@ -96,7 +96,7 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    margin-top: 0.2rem;
+    margin-top: 0.2rem !important;
   }
   .footer-cont{
     width: 10rem;

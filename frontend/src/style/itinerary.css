@@ -1,9 +1,4 @@
-*{
-  box-sizing: border-box;
-  margin: 0%;
-  padding: 0%;
-  font-family:'Franklin Gothic Medium';
-}
+
 .conteiner{
     display: flex;
     justify-content: center;
@@ -11,7 +6,7 @@
 
   }
 .card{
-  width: 60% !important;
+  width: 80% !important;
 }
 
 .button{
