@@ -9,7 +9,9 @@ case "GETONEITINERARY":
                 ...state,
                 itineraries: action.payload,
             }
-        
+            default:
+                return state  
     }
+    
 }
 export default itineraryReducer

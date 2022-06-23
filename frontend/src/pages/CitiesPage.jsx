@@ -1,18 +1,20 @@
 import React from 'react';
 import '../index.css';
-import '../style/citiesPage.css'
+import '../style/citiesPage.css';
 import CardCity from '../component/CardCity.jsx';
 
 import ResultNone from '../component/ResultNone';
-
 import {useDispatch , useSelector} from 'react-redux';
-import citiesActions from '../redux/action/cityAction'
+import citiesActions from '../redux/action/cityAction';
 
 
 
 
 
 export default function  CitiesCard() {
+
+  
+
   const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleChange = event => {

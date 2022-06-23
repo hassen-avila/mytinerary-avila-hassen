@@ -17,7 +17,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import {useSelector, useDispatch} from 'react-redux';
-import itineraryActions from '../redux/action/itineraryAction'
+import itinerariesActions from '../redux/action/itineraryAction'
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -31,11 +31,18 @@ const ExpandMore = styled((props) => {
   }));
 
 
-export default function Itinerary(){
+export default function Itinerary({id}){
       const dispatch = useDispatch()
-      const citiesFilter= useSelector(store => store.itineraryReducer.cities)
-      console.log(citiesFilter);
-      
+      const itinerary= useSelector(store => {
+        console.log(store)
+
+        return store.itineraryReducer.itineraries
+        
+      })
+      console.log(itinerary);
+      console.log(id);
+
+
       const [expanded, setExpanded] = React.useState(false);
       
       const handleExpandClick = () => {
@@ -43,12 +50,13 @@ export default function Itinerary(){
       };
 
       React.useEffect(()=>{
-        dispatch(itineraryActions.getOneItinerary())
-      },[])
+        dispatch(itinerariesActions.getItineraries(id))
+      },[id])
 
     return(
         <div className='card'>
-        {citiesFilter.map(card=>
+        {itinerary.map(card=>
+        
         <Card className='cards' key={card._id}>
          <CardHeader
           avatar={
@@ -64,7 +72,7 @@ export default function Itinerary(){
             </IconButton>
           }
           title={card.user}
-          subheader={card.city}
+          subheader={card.city.name}
           
         />
         <div>
@@ -81,17 +89,18 @@ export default function Itinerary(){
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
+            key={card.id}
           >
             <ExpandMoreIcon className='more' />
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <div className='itinerary'>Itinerary 1</div>
+            <div className='itinerary'></div>
           </CardContent>
         </Collapse>
       </Card>
-      )}
+)}
     
             
             
