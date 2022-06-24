@@ -34,30 +34,35 @@ export default function CardItinerary({card}){
     return(
         <div className='card' key={card._id}>
         <Card className='cards'>
-         <CardHeader
+        <div className='header-card'>
+        <div>
+         <CardHeader 
           avatar={
             <CardMedia
+                    
                     className='image-user'
                     component="img"
                     image={card.userImage}
                     alt={card.user}
             />
           }
-          action={
-            <IconButton aria-label="settings">
-            </IconButton>
-          }
-          title={card.user}
-          subheader={card.city.name}
-        />    
-        <h1>{card.itinerary}</h1>
-        <CardContent>
+        /> 
+        </div>
+        <div className='text-header'>
+          <p>{card.user}</p>
+          <p>{card.city.name}</p>
+        </div>
+        </div>
+        <div className='title-itinerary'><h1>{card.itinerary}</h1></div>   
+        
+        <CardContent className='card-content'>
+        
         <div>
-          <p>Price: {iconCash.repeat(card.price)}</p>
+          <p>Price: {iconCash.repeat(card.price)} - Duration: {card.duration} hs</p>
         </div>
         <Tags tags={card.tags} key={card._id} /> 
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions disableSpacing className='action-card'>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />{card.like}
           </IconButton>

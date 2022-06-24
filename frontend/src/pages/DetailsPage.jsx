@@ -37,6 +37,7 @@ export default function DetailsPage(){
                 <Typography gutterBottom variant="h5" component="div" className='title-cards'>
                 {detailsCity.name} - {detailsCity.country}
                 </Typography>
+                <h3 className='text'>{detailsCity.description}</h3>
             </CardContent>
         
             </Card>

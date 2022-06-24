@@ -19,8 +19,8 @@
   }
   .title-style{
     text-align: center;
-    margin: 1rem;
-    margin-top: 5rem;
+    margin: 1rem !important;
+    margin-top: 5rem !important;
     color: rgb(0, 0, 0);
     text-shadow: 2px 2px 5px rgba(26, 25, 25, 0.788);
     font-size: 3rem;
@@ -46,6 +46,11 @@
   @media (max-width:804px){
     .slogan{
         font-size: 1.3rem;
+    }
+}
+  @media (max-width:273px){
+    .slogan{
+       font-size: 1rem;
     }
 }
 

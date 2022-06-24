@@ -9,11 +9,13 @@
     background-size: cover;
     display: flex;
     justify-content: center;
+    background-attachment: fixed;
+    background-position-x: center;
 }
 .card{
     width: 100% !important;
     background-color: transparent !important;
-    margin-top: 1rem !important;
+    margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
 }
 .more{
@@ -25,7 +27,7 @@
 .cards{
     background-color: rgba(255, 255, 255, 0.644) !important;
     width: 60%!important;
-    margin: 1rem !important;
+    margin: 0.5rem !important;
 }
 .image-user{
     height: 100px !important;
@@ -38,3 +40,36 @@
     text-align: center;
     margin-bottom: 1rem !important;
 }
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title-itinerary{
+    text-align: center;
+    background-color: black;
+    color: azure;
+}
+.text-header{
+    font-size: 1.5rem !important;
+    text-align: center;
+}
+.header-card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.action-card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.text{
+    text-align: center;
+}
+
+  @media (max-width:450px){
+    .header-card{
+      flex-direction: column;
+    }
+  }
