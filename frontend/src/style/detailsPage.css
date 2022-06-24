@@ -21,7 +21,7 @@
 .more{
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(15, 0, 0, 0.637);
 }
 
 .cards{
