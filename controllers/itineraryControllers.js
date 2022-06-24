@@ -53,7 +53,6 @@ const itineraryControllers={
         }
         catch(err) {
             err = error
-            console.log(error);
         }
         res.json({
             response: error ? 'ERROR' : {itine},

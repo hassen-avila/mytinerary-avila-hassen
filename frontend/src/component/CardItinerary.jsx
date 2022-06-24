@@ -50,7 +50,7 @@ export default function CardItinerary({card}){
         </div>
         <div className='text-header'>
           <p>{card.user}</p>
-          <p>{card.city.name}</p>
+          <p className='text-city-name'>City: {card.city.name}</p>
         </div>
         </div>
         <div className='title-itinerary'><h1>{card.itinerary}</h1></div>   
@@ -58,7 +58,7 @@ export default function CardItinerary({card}){
         <CardContent className='card-content'>
         
         <div>
-          <p>Price: {iconCash.repeat(card.price)} - Duration: {card.duration} hs</p>
+          <p>Price: {iconCash.repeat(card.price)} - Duration: {card.duration} hrs.</p>
         </div>
         <Tags tags={card.tags} key={card._id} /> 
         </CardContent>

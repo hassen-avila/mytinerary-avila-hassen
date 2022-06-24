@@ -68,8 +68,15 @@
     text-align: center;
 }
 
+
+.text-city-name{
+    font-size: 1.2rem !important;
+    text-align: center;
+}
+
   @media (max-width:450px){
     .header-card{
       flex-direction: column;
+      margin-bottom: 1rem !important;
     }
   }
