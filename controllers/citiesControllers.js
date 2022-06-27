@@ -9,7 +9,6 @@ const  citiesControllers ={
         let error = null
         try{
             cities= await City.find()
-            console.log(cities)
         }
         catch(err) {err = error}
         res.json({

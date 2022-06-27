@@ -24,7 +24,16 @@ name:'Cities',
 to:'/Cities',
 },
 ];
-const settings = ['Sign in', 'Log in'];
+const settings = 
+[{
+  name: 'Sign In',
+  to:'/LogPage',
+},
+{
+name:'Log In',
+to:'/LogPage',
+},
+];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -165,8 +174,15 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <LinkRouter
+                key={setting.name}
+                to={setting.to}
+                onClick={handleCloseNavMenu}
+               
+              >
+                  <Typography textAlign="center">{setting.name}</Typography>
+                  </LinkRouter>
                 </MenuItem>
               ))}
             </Menu>

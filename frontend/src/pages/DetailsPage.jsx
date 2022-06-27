@@ -9,6 +9,8 @@ import '../style/detailsPage.css'
 import {useDispatch , useSelector} from 'react-redux';
 import citiesActions from '../redux/action/cityAction'
 import {useParams} from 'react-router-dom';
+import ScrollToTop from "react-scroll-to-top";
+import Footer from '../component/Footer'
 
 
 
@@ -49,8 +51,9 @@ export default function DetailsPage(){
             <LinkRouter to='/Cities'><div className='ov-btn-grow-skew-reverse'>Back to Cities</div>
             </LinkRouter>
             </div>
-            
+            <ScrollToTop smooth color="#000" />
             </div>
+            <Footer/>
            </>
             )
         }

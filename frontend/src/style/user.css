@@ -1,0 +1,12 @@
+.background-Log{
+    background-image: url(https://www.imlgranada.com/wp-content/uploads/2021/07/travel-trip-y-journey-cules-son-sus-diferencias-1.jpg);
+    background-size: cover;
+    object-fit: cover;
+    background-position-x: center;
+    background-position-y: center;
+    min-height: 41rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
