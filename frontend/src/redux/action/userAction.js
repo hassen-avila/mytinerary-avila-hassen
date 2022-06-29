@@ -13,6 +13,7 @@ const userActions = {
     },
     signInUser:(userLog)=>{
         return async(dispatch, getState) =>{
+            try{
             const res = await axios.post(`http://localhost:4000/api/auth/signIn`,{userLog})
             console.log(res);
             dispatch({type:"SINGINUSER", payload:{
@@ -20,6 +21,10 @@ const userActions = {
                 message: res.data.message,
                 success: res.data.success
             }})
+            return res
+        }catch(error){
+        console.log(error);
+        }
         }
     }
 }

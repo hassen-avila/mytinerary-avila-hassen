@@ -2,14 +2,14 @@ import React from 'react';
 import '../index.css';
 import '../App.css';
 import '../style/user.css'
-import SingIn from '../component/SingIn';
+import SingUp from '../component/SingUp';
 
 
-export default function SingInPage(){
+export default function SingUpPage(){
 
 return(
   <div className='background-Log'>  
-   <SingIn/>
+   <SingUp/>
   </div>
 );
 }

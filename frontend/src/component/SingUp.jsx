@@ -6,9 +6,8 @@ import userActions from "../redux/action/userAction";
 import axios from "axios";
 
 
-
-export default function SingIn(){
-    const [HeadingText, setHeadingText] = useState("Hi!");
+export default function SingUp(){
+    const HeadingText ="Hi!";
     const [isMouseOver, setMouseOver] = useState(false);
     const dispatch = useDispatch()
   
@@ -33,14 +32,18 @@ export default function SingIn(){
       setMouseOver(false);
     }
   
+    
+
     const [countries, setCountries] = React.useState([]);
     React.useEffect(() => {
       axios.get('https://restcountries.com/v3.1/all')
       .then(res=>{(setCountries(res.data))
-        console.log(res.data);
+  
     })
   ;
     }, []);
+    let country = countries.map(count=>count.name.common).sort()
+  
 
     return (    
       <div className="container-log">
@@ -79,10 +82,10 @@ export default function SingIn(){
           placeholder="PhotoUser Url"
           required
         />
-        <select className="input-log">
-        <option value="select">Country</option>
-        {countries.map((country,index)=>
-        <option value={country.name.common} key={index}>{country.name.common}</option>
+        <select className="input-log" required>
+        <option>Country</option>
+        {country.map((country,index)=>
+        <option value={country} key={index}>{country}</option>
         )}
         </select>
        

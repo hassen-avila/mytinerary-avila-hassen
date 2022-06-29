@@ -174,16 +174,15 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                  <LinkRouter
+                <LinkRouter
                 key={setting.name}
                 to={setting.to}
                 onClick={handleCloseNavMenu}
-               
-              >
-                  <Typography textAlign="center">{setting.name}</Typography>
-                  </LinkRouter>
+                >
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting.name}</Typography>  
                 </MenuItem>
+                </LinkRouter>
               ))}
             </Menu>
           </Box>

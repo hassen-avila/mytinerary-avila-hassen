@@ -130,7 +130,7 @@ const UserControllers = {
                             res.json({
                                 succes: false,
                                 from: from,
-                                message: `verify your ${email} or password!`
+                                message: `verify your email or password!`
                             })
                         }
                     }
