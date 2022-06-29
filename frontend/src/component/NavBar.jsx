@@ -27,7 +27,7 @@ to:'/Cities',
 const settings = 
 [{
   name: 'Sign In',
-  to:'/LogPage',
+  to:'/SingInPage',
 },
 {
 name:'Log In',

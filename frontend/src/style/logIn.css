@@ -28,13 +28,13 @@
     font-size: 40px;
     font-weight: 200;
     background-color: aliceblue;
-    width: 250px;
+    width: 300px;
   }
   
   .input-log {
     border: 1px solid rgba(252, 252, 252, 0.4);
     background-color: rgba(248, 248, 248, 0.733);
-    width: 250px;
+    width: 300px;
     border-radius: 3px;
     font-family: "Source Sans Pro", sans-serif;
     padding: 10px 15px;
@@ -54,7 +54,103 @@
     padding: 10px 15px;
     color: #50a3a2;
     border-radius: 3px;
-    width: 250px;
+    width: 300px;
     font-size: 18px;
   }
   
+  .buttonSing {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+   }
+   
+  .learn-more {
+    width: 12rem;
+    height: auto;
+   }
+   
+   .learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #f11621;
+    border-radius: 1.625rem;
+   }
+   .learn-more1 .circle1 {
+    background: #3080f7 !important; 
+   }
+   
+   .learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 1.4rem;
+    bottom: 0;
+    margin: auto ;
+    background: #fff;
+   }
+   
+  .learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem !important;
+    width: 1.125rem !important;
+    height: 0.125rem !important;
+    background: none;
+   }
+   
+  .learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.28rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+   }
+   
+ .learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+   }
+   
+   .buttonSing:hover .circle {
+    width: 100%;
+   }
+   
+   .buttonSing:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+   }
+   
+   .buttonSing:hover .button-text {
+    color: #fff;
+   }
+   .singIn-Net{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+   }

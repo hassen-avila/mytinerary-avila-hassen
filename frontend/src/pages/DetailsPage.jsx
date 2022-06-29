@@ -27,7 +27,7 @@ export default function DetailsPage(){
       return(
         <>
           <div className='conteiner'>
-        <div className='card'>
+        <div className='card card-f'>
             <Card sx={{ maxWidth: 800 }} className='cards' key={detailsCity._id}>
                     <CardMedia
                     component="img"

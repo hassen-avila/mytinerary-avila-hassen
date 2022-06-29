@@ -1,82 +1,52 @@
-import React from "react";
+
 
 import "../style/logIn.css";
-import{ useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import "../style/logIn.css";
+
+import userActions from "../redux/action/userAction";
+
 
 
 export default function Login(){
-    const [HeadingText, setHeadingText] = useState("Hi!");
-    const [isMouseOver, setMouseOver] = useState(false);
-    const [contact, setContact] = useState({
-      fName: "",
-      lName: "",
-      email: ""
-    });
-  
-    function handleChange(event) {
-      const { name, value } = event.target;
-  
-      setContact((prevValue) => {
-        return {
-          ...prevValue,
-          [name]: value
-        };
-      });
+    
+    const dispatch = useDispatch()
+    const handleSubmit = (event) => {
+      event.preventDefault()
+    const userData = {
+      email: event.target[0].value,
+      password:event.target[1].value,
     }
+dispatch(userActions.signInUser(userData))
+  }
   
-    function handleClick() {
-      setHeadingText("Submitted");
-      setContact({
-        fName: "",
-        lName: "",
-        email: ""
-      });
-    }
-  
-    function handleMouseOver() {
-      setMouseOver(true);
-    }
-  
-    function handleMouseOut() {
-      setMouseOver(false);
-    }
-  
+
     return (    
       <div className="container-log">
-        <h1 className="container-h1">  
-          {HeadingText} {contact.fName} {contact.lName}{" "}
-        </h1>
+        <h1 className="container-h1">Welcome back!</h1>
+        <form action="" onSubmit={handleSubmit}>
         <input
           className="input-log"
-          name="fName"
-          onChange={handleChange}
-          placeholder="First Name"
-          value={contact.fName}
-        />
-        <input
-          className="input-log"
-          name="lName"
-          onChange={handleChange}
-          placeholder="Last Name"
-          value={contact.lName}
-        />
-        <input
-          className="input-log"
-          onChange={handleChange}
           name="email"
-          value={contact.email}
           placeholder="Email"
+          required
+        />
+        <input
+          className="input-log"
+          name="password"
+          placeholder="Password"
+          required
         />
   
         <button
           className="button-log"
-          onClick={handleClick}
-          style={{ backgroundColor: isMouseOver ? "black" : "white" }}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
+          type="summit"
+
         >
           Submit
         </button>
+        </form>
       </div>
     );
   }

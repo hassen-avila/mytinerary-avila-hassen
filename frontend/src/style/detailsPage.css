@@ -17,6 +17,10 @@
     background-color: transparent !important;
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
+    
+}
+.card-f{
+    padding-top: 5rem;
 }
 .more{
     display: flex;

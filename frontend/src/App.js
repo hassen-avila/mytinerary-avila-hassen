@@ -11,6 +11,7 @@ import {useDispatch} from 'react-redux';
 import citiesActions from './redux/action/cityAction'
 import DetailsPage from './pages/DetailsPage';
 import LogPage from './pages/LogPage';
+import SingInPage from './pages/SingInPage';
 
 
 
@@ -29,6 +30,7 @@ return(
       <Route path='/cities' element={<CitiesCard/>}/>
       <Route path='/city/:id' element={<DetailsPage/>} /> 
       <Route path='/LogPage' element={<LogPage/>}/>
+      <Route path='/SingInPage' element={<SingInPage/>}/>
     </Routes>
     
   </div>

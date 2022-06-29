@@ -8,7 +8,8 @@ import Login from '../component/LogIn';
 export default function LogPage(){
 
 return(
-  <div className='background-Log'>   
+  <div className='background-Log'>
+    {}   
    <Login/>
   </div>
 );
