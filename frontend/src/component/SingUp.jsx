@@ -4,6 +4,32 @@ import "../style/logIn.css";
 import { useState } from "react";
 import userActions from "../redux/action/userAction";
 import axios from "axios";
+import Swal from 'sweetalert2'
+import GoogleSignUp from "./GoogleSingApp";
+
+function alerts(params) {
+  if(params.data.success === true){
+    Swal.fire({
+      title: `${params.data.message}`,
+      text:  'Have a nice day!!',
+      imageUrl: 'https://images.unsplash.com/photo-1600577916048-804c9191e36c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsY29tZSUyMHNpZ258ZW58MHx8MHx8&w=1000&q=80',
+      imageWidth: 550,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  }
+  else{
+    Swal.fire({
+      title: 'Are you a new user?',
+      text:  params.data.message,
+      imageUrl: 'https://img.freepik.com/vector-gratis/hombre-mirando-traves-grandes-prismaticos-muy-delante-buscando-algo-persona-mirando-alguien-cerca-nino-viaja-prismaticos_458444-516.jpg?w=2000',
+      imageWidth: 500,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })}
+  
+}
+
 
 
 export default function SingUp(){
@@ -11,7 +37,7 @@ export default function SingUp(){
     const [isMouseOver, setMouseOver] = useState(false);
     const dispatch = useDispatch()
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
       const userData = {
         nameUser: event.target[0].value,
@@ -20,9 +46,12 @@ export default function SingUp(){
         password:event.target[3].value,
         photoUser:event.target[4].value,
         country:event.target[5].value,
+        from:"SignUpForm",
       }
- dispatch(userActions.singUpUsers(userData))
-    }
+const res = await dispatch(userActions.singUpUsers(userData))
+console.log(res);
+alerts(res)
+}
   
     function handleMouseOver() {
       setMouseOver(true);
@@ -96,22 +125,14 @@ export default function SingUp(){
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
+          
           Sing in
         </button>
+        
         </form>
-        <div className="singIn-Net">
-        <button className="buttonSing learn-more">
-            <span className="circle" aria-hidden="true">
-            <span className="icon arrow"></span>
-            </span>
-            <span className="button-text">Google</span>
-        </button>
-        <button className="buttonSing learn-more learn-more1">
-            <span className="circle circle1" aria-hidden="true">
-            <span className="icon arrow"></span>
-            </span>
-            <span className="button-text">Facebook</span>
-        </button>
+        <div >
+        <GoogleSignUp/>
+        
         </div>
       </div>
     );

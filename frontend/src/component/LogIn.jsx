@@ -7,7 +7,7 @@ import "../style/logIn.css";
 
 import userActions from "../redux/action/userAction";
 
-const Swal = require('sweetalert2')
+import Swal from 'sweetalert2'
 
 
 
@@ -21,6 +21,7 @@ export default function Login(){
   const userData = {
     email: event.target[0].value,
     password:event.target[1].value,
+
   }
   const res= await dispatch(userActions.signInUser(userData))
   console.log(res.data);

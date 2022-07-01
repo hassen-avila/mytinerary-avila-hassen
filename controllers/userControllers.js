@@ -4,15 +4,15 @@ const bcryptjs = require('bcryptjs')
 const UserControllers = {
 
     singUpUsers: async (req, res) => {
-        let { nameUser, lastNameUser, photoUser, email, password, country, from } = req.body.userData
+        const { nameUser, lastNameUser, photoUser, email, password, country, from } = req.body.userData
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
                 if (userExists.from.indexOf(from) !== -1) {
                     res.json({
                         success: false,
-                        from: "SignUpForm",
-                        message: `user ${email} already exists, please LOG IN!`
+                        from: from,
+                        message: `user ${nameUser} already exists, please LOG IN!`
                     })
                 } else {
                     const passwordHasheada = bcryptjs.hashSync(password, 10)
@@ -21,8 +21,8 @@ const UserControllers = {
                     if (from === "SignUpForm") {
                         await userExists.save()
                         res.json({
-                            succes: true,
-                            from: "SignUpForm",
+                            success: true,
+                            from: from,
                             message: ``
                         })
 
@@ -30,7 +30,7 @@ const UserControllers = {
                         userExists.save()
                         res.json({
                             success: true,
-                            from: "externalSignUp",
+                            from: from,
                             message: `We add ${from} to Sing in!`
                         })
                     }
@@ -51,15 +51,15 @@ const UserControllers = {
                         await newUser.save()
                         
                         res.json({
-                            succes: true,
-                            from: "SignUpForm",
-                            message: `New User created from ${from}!`
+                            success: true,
+                            from: from,
+                            message: `New User created!`
                         })
                     } else {
                         await newUser.save()
                         res.json({
-                            succes: true,
-                            from: "externalSignUp",
+                            success: true,
+                            from: from,
                             message: `Check ${email} to validate and finish your acount!`
                         })
                     }
@@ -74,7 +74,6 @@ const UserControllers = {
             const { email, password, from } = req.body.userLog
             try {
                 const userExists = await User.findOne({ email })
-                // const indexpass = userExists.from.indexOf(from)
                 if (!userExists) {
                     res.json({ success: false, message: `${email} has no account in MyTinerary, please SIGN UP!` })
                 } else {
@@ -128,7 +127,7 @@ const UserControllers = {
                             })
                         } else {
                             res.json({
-                                succes: false,
+                                success: false,
                                 from: from,
                                 message: `verify your email or password!`
                             })
@@ -138,7 +137,7 @@ const UserControllers = {
             }
             } catch (error) {
                 console.log(error)
-                res.json({ succes: false,
+                res.json({ success: false,
                     message: "Something went wrong, try again in a few minutes" })
             }
         }
