@@ -9,6 +9,7 @@ import userActions from "../redux/action/userAction";
 
 import Swal from 'sweetalert2'
 
+import GoogleSignIn from "./GoogleSingIn";
 
 
 
@@ -24,7 +25,7 @@ export default function Login(){
 
   }
   const res= await dispatch(userActions.signInUser(userData))
-  console.log(res.data);
+  console.log(res);
 
   if(res.data.success === true){
     Swal.fire({
@@ -77,7 +78,12 @@ export default function Login(){
         >
           Submit
         </button>
+        
         </form>
+        <div className="google-p">
+        <GoogleSignIn/>
+        </div>
       </div>
+      
     );
   }

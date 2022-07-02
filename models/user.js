@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
     password: [{type:String, required: true}],
     from: {type:Array,},
     country: {type:String, required:true},
+    verification: {type:Boolean, required:true},
+    uniqueString: {type:String, required:true},
 })
 
 const User = mongoose.model("users", userSchema)

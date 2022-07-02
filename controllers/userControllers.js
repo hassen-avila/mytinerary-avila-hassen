@@ -1,15 +1,20 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
+const crypto = require('crypto')
+const sendEmail = require('../controllers/sendEmail')
+const jwt = require('jsonwebtoken')
 
 const UserControllers = {
 
     singUpUsers: async (req, res) => {
-        const { nameUser, lastNameUser, photoUser, email, password, country, from } = req.body.userData
+        const { nameUser, lastNameUser, photoUser, email, password, country, from} = req.body.userData
         try {
             const userExists = await User.findOne({ email })
+            const verification = false
+            const uniqueString = crypto.randomBytes(15).toString('hex')
             if (userExists) {
                 if (userExists.from.indexOf(from) !== -1) {
-                    res.json({
+                    res.json({  
                         success: false,
                         from: from,
                         message: `user ${nameUser} already exists, please LOG IN!`
@@ -18,6 +23,7 @@ const UserControllers = {
                     const passwordHasheada = bcryptjs.hashSync(password, 10)
                     userExists.from.push(from)
                     userExists.password.push(passwordHasheada)
+                    userExists.verification= true
                     if (from === "SignUpForm") {
                         await userExists.save()
                         res.json({
@@ -46,10 +52,12 @@ const UserControllers = {
                         from: [from],
                         password: [passwordHasheada],
                         emailVerified: false,
+                        verification,
+                        uniqueString:uniqueString,
                     })
                     if (from !== "SignUpForm") {
                         await newUser.save()
-                        
+                        newUser.verification=true
                         res.json({
                             success: true,
                             from: from,
@@ -57,6 +65,7 @@ const UserControllers = {
                         })
                     } else {
                         await newUser.save()
+                        await sendEmail(email, uniqueString)
                         res.json({
                             success: true,
                             from: from,
@@ -91,12 +100,12 @@ const UserControllers = {
                                 country: userExists.country,
                                 from: userExists.from, 
                             }
-                            
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
                             await userExists.save()
                             res.json({
                                 success: true,
                                 from: from,
-                                response: { userData },
+                                response: { userData, token },
                                 message: `welcome back ${userData.nameUser}!`,
                             })
                         } else {
@@ -118,11 +127,12 @@ const UserControllers = {
                                 country: userExists.country,
                                 from: userExists.from,
                             }
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
                             await userExists.save()
                             res.json({
                                 success: true,
                                 from: from,
-                                response: {userData},
+                                response: {userData, token},
                                 message: "Welcome again " + userData.nameUser + " " + userData.lastNameUser,
                             })
                         } else {
@@ -139,6 +149,22 @@ const UserControllers = {
                 console.log(error)
                 res.json({ success: false,
                     message: "Something went wrong, try again in a few minutes" })
+            }
+        },
+        verifyMail: async (req,res)=>{
+            const {string} = req.params
+            const user = await User.findOne({uniqueString: string})
+            console.log(user);
+            if(user){
+                user.verification=true
+                await user.save()
+                res.redirect("http://localhost:3000/index")
+            }
+            else{
+                res.json({
+                    success:false,
+                    message: 'email has not been confirmed yet'
+                })
             }
         }
 }

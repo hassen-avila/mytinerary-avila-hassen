@@ -5,18 +5,15 @@ import userActions from "../redux/action/userAction";
 import Swal from 'sweetalert2'
 
 
-const GoogleSignUp = () => {
+const GoogleSignIn = () => {
   const dispatch = useDispatch();
 
   async function handleCallbackResponse(response) {
     let userObject = jwt_decode(response.credential);
     const res= await dispatch(
-      userActions.singUpUsers({
-        nameUser: userObject.given_name,
-        lastNameUser: userObject.family_name,
+      userActions.signInUser({
+        
         email: userObject.email,
-        country: "argentina",
-        photoUser: userObject.picture,
         password: userObject.sub,
         from: "google",
       }),
@@ -54,7 +51,7 @@ const GoogleSignUp = () => {
 
     google.accounts.id.renderButton(document.getElementById("button-div"), {
       theme: "outline",
-      size: "medium",
+      size: "large",
       type: "standard",
       shape: "rectangular",
       locale: "en",
@@ -69,4 +66,4 @@ const GoogleSignUp = () => {
   );
 };
 
-export default GoogleSignUp;
+export default GoogleSignIn;
