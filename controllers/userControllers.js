@@ -56,16 +56,16 @@ const UserControllers = {
                         uniqueString:uniqueString,
                     })
                     if (from !== "SignUpForm") {
-                        await newUser.save()
                         newUser.verification=true
+                        await newUser.save()
                         res.json({
                             success: true,
                             from: from,
                             message: `New User created!`
                         })
                     } else {
-                        await newUser.save()
                         await sendEmail(email, uniqueString)
+                        await newUser.save()
                         res.json({
                             success: true,
                             from: from,
@@ -100,7 +100,7 @@ const UserControllers = {
                                 country: userExists.country,
                                 from: userExists.from, 
                             }
-                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000* 60* 60*24})
                             await userExists.save()
                             res.json({
                                 success: true,
@@ -127,7 +127,7 @@ const UserControllers = {
                                 country: userExists.country,
                                 from: userExists.from,
                             }
-                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24})
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000* 60* 60*24})
                             await userExists.save()
                             res.json({
                                 success: true,
@@ -165,6 +165,37 @@ const UserControllers = {
                     success:false,
                     message: 'email has not been confirmed yet'
                 })
+            }
+        },
+        signOut: async (req, res) => {
+            console.log("signOut");
+            console.log(req.body);
+            const email = req.body.closeUser;
+            const user = await User.findOne({ email });
+            await user.save();
+            res.json({
+              success: true,
+              message: {email} + " sign out!",
+            });
+          },
+        
+        verifyToken:(req, res) => {
+        console.log(req.user)
+            if (!req.err) {
+            res.json({
+                success: true,
+                response: {
+                    id: req.user.id,
+                    nameUser:req.user.nameUser,
+                    email:req.user.email,
+                    photoUser:req.user.photoUser,
+                    from:"token"
+                },
+                message:"Hi! Welcome back "+req.user.nameUser}) 
+            } else {
+                res.json({
+                    success:false,
+                    message:"sign in please!"}) 
             }
         }
 }

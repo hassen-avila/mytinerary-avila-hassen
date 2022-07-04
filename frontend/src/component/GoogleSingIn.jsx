@@ -5,6 +5,7 @@ import userActions from "../redux/action/userAction";
 import Swal from 'sweetalert2'
 
 
+
 const GoogleSignIn = () => {
   const dispatch = useDispatch();
 
@@ -43,6 +44,7 @@ const GoogleSignIn = () => {
   
   useEffect(() => {
     /* global google */
+ 
     google.accounts.id.initialize({
       client_id:
         "15100862035-vtmgkckdn1vftua21p12amqm0fqvi95n.apps.googleusercontent.com",

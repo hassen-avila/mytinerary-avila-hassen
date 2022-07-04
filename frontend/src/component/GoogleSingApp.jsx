@@ -5,7 +5,7 @@ import userActions from "../redux/action/userAction";
 import Swal from 'sweetalert2'
 
 
-const GoogleSignUp = () => {
+const GoogleSignUp = ({selectCountry}) => {
   const dispatch = useDispatch();
 
   async function handleCallbackResponse(response) {
@@ -15,7 +15,7 @@ const GoogleSignUp = () => {
         nameUser: userObject.given_name,
         lastNameUser: userObject.family_name,
         email: userObject.email,
-        country: "argentina",
+        country: selectCountry,
         photoUser: userObject.picture,
         password: userObject.sub,
         from: "google",
@@ -58,8 +58,6 @@ const GoogleSignUp = () => {
       type: "standard",
       shape: "rectangular",
       locale: "en",
-      text: "button",
-      width: "100%"
     });
   });
 

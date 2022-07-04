@@ -14,6 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from "react-router-dom"
 import '../style/navBar.css'
 import '../App.css'
+import { useSelector } from "react-redux";
+import userActions from '../redux/action/userAction';
+import { useDispatch } from "react-redux";
+
+import Swal from 'sweetalert2'
+
 
 const pages = [{
   name: 'Home',
@@ -36,23 +42,58 @@ to:'/LogPage',
 ];
 
 const Header = () => {
+  const dispatch = useDispatch()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [contador, setContador] = React.useState(0);
+  console.log(contador);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    setContador(contador+1)
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+    setContador(contador+1)
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    setContador(contador+1)
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+    setContador(contador+1)
   };
+  const userInfo = useSelector(store=>store.userReducer.userData)
+console.log(userInfo);
+
+  const userState = useSelector(store=>store.userReducer.user)
+console.log(userState);
+
+  function signOutClick() {
+    dispatch(userActions.signOutUser())
+  }
+
+    React.useEffect(()=>{
+      if(contador==0 ){
+        if(userState?.success == true){
+          Swal.fire({
+            title: `${userState.message}`,
+            text:  'Have a nice day!!',
+            imageUrl: 'https://images.unsplash.com/photo-1600577916048-804c9191e36c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsY29tZSUyMHNpZ258ZW58MHx8MHx8&w=1000&q=80',
+            imageWidth: 550,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+        }
+      }
+    },[userState])
+
+ 
+
+  
 
   return (
     <AppBar position="fixed" className='navbar-color'>
@@ -107,13 +148,18 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+            
+                
               {pages.map((page,index) => (
                 <LinkRouter key={index}  to={page.to} onClick={handleCloseNavMenu}>
                 <MenuItem >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
-                </LinkRouter>
-              ))}
+                </LinkRouter>)
+              ) 
+              
+              
+              }
             </Menu>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
@@ -154,7 +200,10 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="logo-login" src="https://flyclipart.com/thumb2/login-account-icon-account-login-logn-with-png-935680.png" />
+                {userState?(
+                <Avatar alt="user-login" src={userInfo.photoUser}/>):
+                (<Avatar alt="logo-login" src="https://flyclipart.com/thumb2/login-account-icon-account-login-logn-with-png-935680.png" />)}
+                
               </IconButton>
             </Tooltip>
             <Menu
@@ -172,18 +221,27 @@ const Header = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
+            >{userState? (<LinkRouter
+              key='log out'
+              to='/'
+              onClick={signOutClick}
+              >
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">Log Out</Typography>  
+              </MenuItem>
+              </LinkRouter>):
+              (settings.map((setting) => (
                 <LinkRouter
                 key={setting.name}
                 to={setting.to}
                 onClick={handleCloseNavMenu}
+                refresh="true"
                 >
                 <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting.name}</Typography>  
                 </MenuItem>
                 </LinkRouter>
-              ))}
+              )))}
             </Menu>
           </Box>
         </Toolbar>

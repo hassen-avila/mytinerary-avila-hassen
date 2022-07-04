@@ -36,6 +36,56 @@ export default function SingUp(){
     const HeadingText ="Hi!";
     const [isMouseOver, setMouseOver] = useState(false);
     const dispatch = useDispatch()
+    const [selectCountry, setSelectCountry] = React.useState([]);
+
+    Swal.fire({
+      title: 'Please Select your country',
+      input: 'select',
+      inputOptions: {
+          'Argentina': 'Argentina',
+          'Australia': 'Australia',
+          'Brazil': 'Brazil',
+          'Chile': 'Chile',
+          'Colombia': 'Colombia',
+          'China': 'China',
+          'Mexico': 'Mexico',
+          'Germany': 'Germany',
+          'France': 'France',
+          'India': 'India',
+          'Italy': 'Italy',
+          'Japan': 'Japan',
+          'Korea': 'Korea',
+          'Quatar': 'Quatar',
+          'England': 'England',
+          'EEUU': 'EEUU',
+          'Spain': 'Spain',
+      },
+      inputPlaceholder: 'Select your country',
+      inputAttributes: {
+          name: 'select-country'
+      },
+      showCancelButton: false,
+      allowOutsideClick: false,
+      preConfirm: (country) => {
+          setSelectCountry(country)
+      },
+      inputValidator: (value) => {
+          return new Promise((resolve) => {
+              if (value === '') {
+                  resolve('You need to select a country')
+              } else {
+                  resolve()
+              }
+          })
+      },
+  }).then((result) => {
+      if (result.value) {
+          Swal.close()
+  }
+  })
+
+
+
   
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -45,7 +95,7 @@ export default function SingUp(){
         email: event.target[2].value,
         password:event.target[3].value,
         photoUser:event.target[4].value,
-        country:event.target[5].value,
+        country:selectCountry,
         from:"SignUpForm",
       }
 const res = await dispatch(userActions.singUpUsers(userData))
@@ -63,18 +113,21 @@ alerts(res)
   
     
 
-    const [countries, setCountries] = React.useState([]);
-    React.useEffect(() => {
-      axios.get('https://restcountries.com/v3.1/all')
-      .then(res=>{(setCountries(res.data))
+  //   const [countries, setCountries] = React.useState([]);
+  //   React.useEffect(() => {
+  //     axios.get('https://restcountries.com/v3.1/all')
+  //     .then(res=>{(setCountries(res.data))
   
-    })
-  ;
-    }, []);
-    let country = countries.map(count=>count.name.common).sort()
+  //   })
+  // ;
+  //   }, []);
+  //   let country = countries.map(count=>count.name.common).sort()
+
+    
   
 
-    return (    
+    return (  
+      <> 
       <div className="container-log">
         <h1 className="container-h1">  
           {HeadingText}
@@ -111,12 +164,12 @@ alerts(res)
           placeholder="PhotoUser Url"
           required
         />
-        <select className="input-log" required>
+        {/* <select className="input-log" required>
         <option>Country</option>
         {country.map((country,index)=>
         <option value={country} key={index}>{country}</option>
         )}
-        </select>
+        </select> */}
        
         <button
           className="button-log"
@@ -130,10 +183,11 @@ alerts(res)
         </button>
         
         </form>
-        <div >
-        <GoogleSignUp/>
         
-        </div>
       </div>
+      <div  className="google-p">
+      <GoogleSignUp selectCountry={selectCountry}/>
+      </div>
+      </> 
     );
   }

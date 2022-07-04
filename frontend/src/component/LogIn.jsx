@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 
 import GoogleSignIn from "./GoogleSingIn";
 
-
+import {Link as LinkRouter} from "react-router-dom"
 
 export default function Login(){
   const dispatch = useDispatch()
@@ -56,8 +56,9 @@ export default function Login(){
 
     return (    
       <div className="container-log">
+        
         <h1 className="container-h1">Welcome back!</h1>
-        <form action="" onSubmit={handleSubmit}>
+        <form action="http://localhost:3000/index" onSubmit={handleSubmit}>
         <input
           className="input-log"
           name="email"
@@ -74,15 +75,20 @@ export default function Login(){
         <button
           className="button-log"
           type="summit"
-
+          to
         >
           Submit
         </button>
+        <div className="google-p">
+        <LinkRouter
+          to="/"
+          >
+        <GoogleSignIn/>
+        </LinkRouter>
+        </div>
         
         </form>
-        <div className="google-p">
-        <GoogleSignIn/>
-        </div>
+        
       </div>
       
     );

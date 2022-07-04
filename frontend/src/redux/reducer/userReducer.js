@@ -1,19 +1,25 @@
 const initialState ={
-    singUp:[],
-    singIn:[]
+    user: null,
+    userData:[],
    }
+
+
    const userReducer=( state = initialState, action) =>{
    switch (action.type){
-   case "SINGUPUSER":
-               return{
-                   ...state,
-                   singUp: action.payload,
-               }
-   case "SINGINUSER":
-               return{
-                   ...state,
-                   singIn: action.payload,
-               }
+    case "USER":{
+                return{
+                    ...state,
+                    user: action.payload,
+                    userData:action.payload,
+                }
+    }
+    case "MESSAGE":{
+        return{
+            ...state,
+            user: action.payload,
+            
+        }
+    }
    default:
                return state  
        }
