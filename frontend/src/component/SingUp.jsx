@@ -38,6 +38,13 @@ export default function SingUp(){
     const dispatch = useDispatch()
     const [selectCountry, setSelectCountry] = React.useState([]);
 
+
+    const [contador, setContador] = React.useState(0);
+    console.log(contador);
+
+    React.useEffect(()=>{
+      if(contador==0 ){
+
     Swal.fire({
       title: 'Please Select your country',
       input: 'select',
@@ -84,7 +91,8 @@ export default function SingUp(){
   }
   })
 
-
+}
+},[setMouseOver])
 
   
     const handleSubmit = async (event) => {
@@ -105,10 +113,12 @@ alerts(res)
   
     function handleMouseOver() {
       setMouseOver(true);
+      setContador(contador+1)
     }
   
     function handleMouseOut() {
       setMouseOver(false);
+      setContador(contador+1)
     }
   
     
