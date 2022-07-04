@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "../style/logIn.css";
 import { useState } from "react";
 import userActions from "../redux/action/userAction";
-import axios from "axios";
+
 import Swal from 'sweetalert2'
 import GoogleSignUp from "./GoogleSingApp";
 
