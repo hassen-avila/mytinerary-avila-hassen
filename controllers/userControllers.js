@@ -41,7 +41,7 @@ const UserControllers = {
                         })
                     }
                 }
-                } else {                    
+                } else {  
                     const passwordHasheada = bcryptjs.hashSync(password, 10)
                     const newUser = await new User({
                         nameUser,
@@ -89,7 +89,7 @@ const UserControllers = {
                     if (from !== "LogInForm") {
                         if (userExists.emailVerified) {
                         let passwordmatch = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
-                        console.log(passwordmatch)
+                    
                         if (passwordmatch.length > 0) {
                             const userData = {
                                 id: userExists._id,
@@ -116,6 +116,7 @@ const UserControllers = {
                             })
                         }
                     } else {
+                        if(userExists.verification === true){               
                         let passwordmatch = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
                         if (passwordmatch.length > 0) {
                             const userData = {
@@ -144,7 +145,7 @@ const UserControllers = {
                         }
                     }
                 }
-            }
+            }}
             } catch (error) {
                 console.log(error)
                 res.json({ success: false,
@@ -154,11 +155,11 @@ const UserControllers = {
         verifyMail: async (req,res)=>{
             const {string} = req.params
             const user = await User.findOne({uniqueString: string})
-            console.log(user);
+            
             if(user){
                 user.verification=true
                 await user.save()
-                res.redirect("http://localhost:3000/index")
+                res.redirect("http://localhost:3000/LogPage")
             }
             else{
                 res.json({
@@ -168,8 +169,6 @@ const UserControllers = {
             }
         },
         signOut: async (req, res) => {
-            console.log("signOut");
-            console.log(req.body);
             const email = req.body.closeUser;
             const user = await User.findOne({ email });
             await user.save();
@@ -180,7 +179,7 @@ const UserControllers = {
           },
         
         verifyToken:(req, res) => {
-        console.log(req.user)
+        
             if (!req.err) {
             res.json({
                 success: true,

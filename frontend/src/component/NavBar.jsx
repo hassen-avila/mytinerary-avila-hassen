@@ -46,7 +46,7 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [contador, setContador] = React.useState(0);
-  console.log(contador);
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -67,20 +67,19 @@ const Header = () => {
     setContador(contador+1)
   };
   const userInfo = useSelector(store=>store.userReducer.userData)
-console.log(userInfo);
+
 
   const userState = useSelector(store=>store.userReducer.user)
-console.log(userState);
 
   function signOutClick() {
     dispatch(userActions.signOutUser())
   }
 
     React.useEffect(()=>{
-      if(contador==0 ){
+    if(contador==0 ){
         if(userState?.success == true){
           Swal.fire({
-            title: `${userState.message}`,
+            title: `${userState?.message}`,
             text:  'Have a nice day!!',
             imageUrl: 'https://images.unsplash.com/photo-1600577916048-804c9191e36c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsY29tZSUyMHNpZ258ZW58MHx8MHx8&w=1000&q=80',
             imageWidth: 550,

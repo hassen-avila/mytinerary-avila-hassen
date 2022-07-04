@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "../style/logIn.css";
 import { useState } from "react";
 import userActions from "../redux/action/userAction";
-
+import {useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import GoogleSignUp from "./GoogleSingApp";
 
@@ -37,11 +37,9 @@ export default function SingUp(){
     const [isMouseOver, setMouseOver] = useState(false);
     const dispatch = useDispatch()
     const [selectCountry, setSelectCountry] = React.useState([]);
-
+    const navigate= useNavigate()
 
     const [contador, setContador] = React.useState(0);
-    console.log(contador);
-
     React.useEffect(()=>{
       if(contador==0 ){
 
@@ -90,7 +88,7 @@ export default function SingUp(){
           Swal.close()
   }
   })
-
+  
 }
 },[setMouseOver])
 
@@ -109,6 +107,7 @@ export default function SingUp(){
 const res = await dispatch(userActions.singUpUsers(userData))
 console.log(res);
 alerts(res)
+navigate('/LogPage')
 }
   
     function handleMouseOver() {

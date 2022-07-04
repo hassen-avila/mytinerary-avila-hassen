@@ -7,7 +7,7 @@ const userActions = {
         return async(dispatch, getState) =>{
             try{
                 const res = await axios.post('http://localhost:4000/api/auth/signUp', {userData})
-                console.log(res);
+                
                 dispatch({type:"MESSAGE", payload:{
                     view: true,
                     message: res.data.message,
@@ -24,7 +24,7 @@ const userActions = {
         return async(dispatch, getState) =>{
             try{
             const res = await axios.post(`http://localhost:4000/api/auth/signIn`,{userLog})
-            console.log(res);
+            
             if(res.data.success){
                 localStorage.setItem('token', res.data.response.token)
                 dispatch({type: 'USER', payload: res.data.response.userData})

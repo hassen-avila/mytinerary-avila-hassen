@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import jwt_decode from "jwt-decode";
 import userActions from "../redux/action/userAction";
 import Swal from 'sweetalert2'
+import {useNavigate} from 'react-router-dom'
 
 
 const GoogleSignUp = ({selectCountry}) => {
   const dispatch = useDispatch();
+  const navigate= useNavigate()
 
   async function handleCallbackResponse(response) {
     let userObject = jwt_decode(response.credential);
@@ -31,6 +33,7 @@ const GoogleSignUp = ({selectCountry}) => {
       imageHeight: 200,
       imageAlt: 'Custom image',
     })
+    navigate('/index')
   }
   else{
     Swal.fire({

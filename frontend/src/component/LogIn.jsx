@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import "../style/logIn.css";
 
 import userActions from "../redux/action/userAction";
-
+import {useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 import GoogleSignIn from "./GoogleSingIn";
@@ -15,7 +15,7 @@ import {Link as LinkRouter} from "react-router-dom"
 
 export default function Login(){
   const dispatch = useDispatch()
-  
+  const navigate= useNavigate()
   const handleSubmit = async (event) => {
  
   event.preventDefault()
@@ -36,6 +36,7 @@ export default function Login(){
       imageHeight: 200,
       imageAlt: 'Custom image',
     })
+    navigate('/index')
   }
   else{
     Swal.fire({
