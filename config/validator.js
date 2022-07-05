@@ -2,10 +2,10 @@ const joi = require('joi')
 
 
 const validator = (req, res, next) => {
-    //console.log("req.body es")
-    //console.log(req.body)
+    console.log("req.body es")
+    console.log(req.body)
     const schema = joi.object({
-        name: joi.string()
+        nameUser: joi.string()
             .min(3)
             .max(20)
             .trim()
@@ -15,7 +15,7 @@ const validator = (req, res, next) => {
                 'string.min': 'name: min 3 characters',
                 'string.max': 'name: max 20 characters'
             }),
-        lastName: joi.string()
+        lastNameUser: joi.string()
             .min(3)
             .max(20)
             .trim()
@@ -24,7 +24,7 @@ const validator = (req, res, next) => {
                 'string.min': '"last name": min 3 characters',
                 'string.max': '"last name": max 20 characters'
             }),
-        userPhoto: joi.string()
+        photoUser: joi.string()
             .min(10)
             .trim()
             .required(),
@@ -53,7 +53,8 @@ const validator = (req, res, next) => {
     })
     const validation = schema.validate(req.body.userData, { abortEarly: false })
     if (validation.error) {
-        return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation })
+        return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation, console: console.log("error") })
+        
     }
     next()
 }

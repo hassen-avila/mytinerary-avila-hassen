@@ -58,8 +58,6 @@ const GoogleSignIn = () => {
       theme: "outline",
       size: "large",
       type: "standard",
-      shape: "rectangular",
-      locale: "en",
       text: "button",
       width: "100%"
     });

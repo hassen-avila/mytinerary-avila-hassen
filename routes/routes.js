@@ -40,7 +40,7 @@ Router.route('/itinerariesMulti')
 .post(multiplesIteneraries)
 
 Router.route('/auth/signUp')
-.post(singUpUsers, validator)
+.post( validator, singUpUsers)
 
 Router.route('/auth/signIn')
 .post(signInUser)

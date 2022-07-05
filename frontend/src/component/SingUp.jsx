@@ -7,8 +7,29 @@ import {useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import GoogleSignUp from "./GoogleSingApp";
 
-function alerts(params) {
-  if(params.data.success === true){
+function alerts(params, navigate) {
+  if(params.data.success === false && params.data.from==="validator"){
+    let alertmes=params.data.message.map(mens=>mens.message)
+    Swal.fire({
+      title: 'Ups!!',
+      text:  alertmes,
+      imageUrl: 'https://img.freepik.com/vector-gratis/hombre-mirando-traves-grandes-prismaticos-muy-delante-buscando-algo-persona-mirando-alguien-cerca-nino-viaja-prismaticos_458444-516.jpg?w=2000',
+      imageWidth: 500,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  }
+  else if(params.data.success === true && params.data.from==="SignUpForm"){
+    Swal.fire({
+      title: `${params.data.message}`,
+      text:  'Have a nice day!!',
+      imageUrl: 'https://images.unsplash.com/photo-1600577916048-804c9191e36c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsY29tZSUyMHNpZ258ZW58MHx8MHx8&w=1000&q=80',
+      imageWidth: 550,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+  }
+  else if(params.data.success === true && params.data.from==="google"){
     Swal.fire({
       title: `${params.data.message}`,
       text:  'Have a nice day!!',
@@ -92,6 +113,10 @@ export default function SingUp(){
 }
 },[setMouseOver])
 
+
+
+
+
   
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -105,9 +130,16 @@ export default function SingUp(){
         from:"SignUpForm",
       }
 const res = await dispatch(userActions.singUpUsers(userData))
-console.log(res);
-alerts(res)
-navigate('/LogPage')
+alerts(res, navigate)
+
+if(res.data.success){
+  navigate('/LogPage')
+}
+
+
+  
+
+
 }
   
     function handleMouseOver() {

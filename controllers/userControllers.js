@@ -29,7 +29,7 @@ const UserControllers = {
                         res.json({
                             success: true,
                             from: from,
-                            message: ``
+                            message: `We add ${from} to Sing in!`,
                         })
 
                     } else {
@@ -61,7 +61,7 @@ const UserControllers = {
                         res.json({
                             success: true,
                             from: from,
-                            message: `New User created!`
+                            message: `New User created from ${from}!`
                         })
                     } else {
                         await sendEmail(email, uniqueString)
@@ -85,11 +85,10 @@ const UserControllers = {
                 const userExists = await User.findOne({ email })
                 if (!userExists) {
                     res.json({ success: false, message: `${email} has no account in MyTinerary, please SIGN UP!` })
-                } else {
-                    if (from !== "LogInForm") {
-                        if (userExists.emailVerified) {
+                } else if (userExists.verification) {
+                        if (from !== "LogInForm") {
                         let passwordmatch = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
-                    
+                            
                         if (passwordmatch.length > 0) {
                             const userData = {
                                 id: userExists._id,
@@ -136,16 +135,24 @@ const UserControllers = {
                                 response: {userData, token},
                                 message: "Welcome again " + userData.nameUser + " " + userData.lastNameUser,
                             })
-                        } else {
+                        } 
+                        else {
                             res.json({
                                 success: false,
                                 from: from,
-                                message: `verify your email or password!`
+                                message: `verify your email or ypur password!`
                             })
                         }
+                     }
                     }
                 }
-            }}
+                else {
+                     res.json({
+                        success: false,
+                        from: from,
+                        message: `verify your acount in your email!`
+                })
+                }
             } catch (error) {
                 console.log(error)
                 res.json({ success: false,

@@ -22,10 +22,12 @@ export default function Login(){
   const userData = {
     email: event.target[0].value,
     password:event.target[1].value,
+    from:"LogInForm",
 
   }
+
   const res= await dispatch(userActions.signInUser(userData))
-  console.log(res);
+ 
 
   if(res.data.success === true){
     Swal.fire({

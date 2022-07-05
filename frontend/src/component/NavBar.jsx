@@ -46,7 +46,6 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [contador, setContador] = React.useState(0);
-  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -66,20 +65,19 @@ const Header = () => {
     setAnchorElUser(null);
     setContador(contador+1)
   };
-  const userInfo = useSelector(store=>store.userReducer.userData)
-
 
   const userState = useSelector(store=>store.userReducer.user)
+  const userMessage = useSelector(store=>store.userReducer.message)
 
   function signOutClick() {
     dispatch(userActions.signOutUser())
   }
 
     React.useEffect(()=>{
-    if(contador==0 ){
-        if(userState?.success == true){
+    if(contador===0){
+        if(userMessage?.success === true){
           Swal.fire({
-            title: `${userState?.message}`,
+            title: `${userMessage.message}`,
             text:  'Have a nice day!!',
             imageUrl: 'https://images.unsplash.com/photo-1600577916048-804c9191e36c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsY29tZSUyMHNpZ258ZW58MHx8MHx8&w=1000&q=80',
             imageWidth: 550,
@@ -200,7 +198,7 @@ const Header = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {userState?(
-                <Avatar alt="user-login" src={userInfo.photoUser}/>):
+                <Avatar alt="user-login" src={userState.photoUser}/>):
                 (<Avatar alt="logo-login" src="https://flyclipart.com/thumb2/login-account-icon-account-login-logn-with-png-935680.png" />)}
                 
               </IconButton>
@@ -220,7 +218,7 @@ const Header = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >{userState? (<LinkRouter
+            >{userState ? (<LinkRouter
               key='log out'
               to='/'
               onClick={signOutClick}

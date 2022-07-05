@@ -1,6 +1,7 @@
 const initialState ={
     user: null,
     userData:[],
+    message:{},
    }
 
 
@@ -16,7 +17,7 @@ const initialState ={
     case "MESSAGE":{
         return{
             ...state,
-            user: action.payload,
+            message: action.payload,
             
         }
     }
