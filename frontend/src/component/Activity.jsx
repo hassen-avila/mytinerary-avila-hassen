@@ -3,13 +3,15 @@ import '../style/detailsPage.css'
 import {useSelector, useDispatch} from 'react-redux';
 import activitiesActions from '../redux/action/activityAction'
 import CardActivity from './CardActivity';
-import NotFound from './NotFound'
+import NotFoundActivity from './NotFoundActivity'
 
 export default function Activity({id}){
+    
+  
     const [activities,SetActivities]=React.useState([])
-      const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-
+  
       
 
       React.useEffect(()=>{
@@ -27,7 +29,7 @@ export default function Activity({id}){
         {activities.length>0 ? (activities.map(card=>
           <div className='card' key={card.nameActivity} >
             <CardActivity card={card}/> 
-          </div>)):(<NotFound/>)}
+          </div>)):(<NotFoundActivity/>)}
         </>
         
     )
