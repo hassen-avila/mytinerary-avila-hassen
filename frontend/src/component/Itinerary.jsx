@@ -1,7 +1,6 @@
 import React from 'react'
 import '../style/detailsPage.css'
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
+
 import {useSelector, useDispatch} from 'react-redux';
 import itinerariesActions from '../redux/action/itineraryAction'
 import CardItinerary from './CardItinerary';

@@ -11,6 +11,9 @@ import Tags from '../component/Tags'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import '../style/detailsPage.css'
+import Activity from './Activity';
+
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -24,6 +27,7 @@ const ExpandMore = styled((props) => {
   }));
 
 export default function CardItinerary({card}){
+
 
     const [expanded, setExpanded] = React.useState(false);
     let iconCash="💵 "
@@ -77,7 +81,11 @@ export default function CardItinerary({card}){
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <div className='itinerary'>IN CONSTRUCTION</div>
+            <div className='itinerary'>
+              
+              <Activity id={card._id}/>
+              
+              </div>
           </CardContent>
         </Collapse>
       </Card>

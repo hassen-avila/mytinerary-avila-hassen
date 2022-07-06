@@ -4,9 +4,15 @@ const citiesControllers = require('../controllers/citiesControllers');
 const { getItinerary, getOneItinerary, modifyItinerary, addItinerary, multiplesIteneraries, removeItinerary, findItineraryFromCity } = require('../controllers/itineraryControllers');
 const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} =citiesControllers
 const {signInUser,singUpUsers,verifyMail} = require('../controllers/userControllers')
+const {addActivity, getActivities, findActivityFromItinerary} = require('../controllers/activitiesControllers')
 const {verifyToken} = require('../controllers/userControllers')
 const validator = require('../config/validator')
 
+
+
+
+
+// Route city
 
 Router.route('/cities')
 .get(getCities)
@@ -19,6 +25,8 @@ Router.route('/cities/:id')
 
 Router.route('/multiplesCities')
 .post(multiplesCities)
+
+// Route itinerary
 
 Router.route('/itinerary')
 .post(addItinerary)
@@ -39,16 +47,31 @@ Router.route('/itinerary/:id')
 Router.route('/itinerariesMulti')
 .post(multiplesIteneraries)
 
+// Route user
+
 Router.route('/auth/signUp')
-.post( validator, singUpUsers)
+.post(validator, singUpUsers)
 
 Router.route('/auth/signIn')
 .post(signInUser)
 
+// Route verify mail
+
 Router.route('/verify/:string')
 .get(verifyMail)
 
+// Route token
+
 Router.route('/loginToken')
 .get(passport.authenticate('jwt', {session:false}),verifyToken)
+
+// Route activity
+
+Router.route('/activity')
+.post(addActivity)
+.get(getActivities) 
+
+Router.route('/activity/itinerary/:id')
+.get(findActivityFromItinerary)
 
 module.exports = Router
