@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { likeDislike } from "../../../../controllers/itineraryControllers";
 
 const itinerariesActions = {
     getItinerariesFromCity:(id)=>{
@@ -14,18 +13,21 @@ const itinerariesActions = {
         dispatch({type:"GETONEITINERARY", payload:res.data.response.itine}) 
         }
     },
-    // likeDislike: (id) => {
-    //     const token = localStorage.getItem('token')
-    //     return async() => {
-    //         try {
-    //             const answer = await axios.put(`http://localhost:4000/api/itineraries/likes/${id}`,{},
-    //                 {headers: {Authorization: "Bearer "+token}}
-    //             )
-    //             return answer.data.response
-    //         }catch (err) {
-    //             console.log(err)
-    //         }
-    //     }
-    // },
+    likeDislike: (id) => {
+        const token = localStorage.getItem('token')
+        return async() => {
+            try {
+                const res = await axios.put(`http://localhost:4000/api/itineraries/likes/${id}`,{},
+                    {headers: {Authorization: "Bearer "+token}}
+                    
+                )
+                console.log(res)
+                return res
+                
+            }catch (err) {
+                console.log(err)
+            }
+        }
+    },
 }
 export default itinerariesActions

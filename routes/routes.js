@@ -1,7 +1,7 @@
 const Router = require('express').Router();
 const passport = require('../config/passport')
 const citiesControllers = require('../controllers/citiesControllers');
-const { getItinerary, getOneItinerary, modifyItinerary, addItinerary, multiplesIteneraries, removeItinerary, findItineraryFromCity } = require('../controllers/itineraryControllers');
+const { getItinerary, getOneItinerary, modifyItinerary, addItinerary, multiplesIteneraries, removeItinerary, findItineraryFromCity, likeDislike } = require('../controllers/itineraryControllers');
 const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} =citiesControllers
 const {signInUser,singUpUsers,verifyMail} = require('../controllers/userControllers')
 const {addActivity, getActivities, findActivityFromItinerary} = require('../controllers/activitiesControllers')
@@ -73,5 +73,10 @@ Router.route('/activity')
 
 Router.route('/activity/itinerary/:id')
 .get(findActivityFromItinerary)
+
+// Route likes
+
+Router.route('/itineraries/likes/:id')
+.put(passport.authenticate('jwt', {session:false}),likeDislike)
 
 module.exports = Router

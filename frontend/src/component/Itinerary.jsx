@@ -16,6 +16,9 @@ export default function Itinerary({id}){
       React.useEffect(()=>{
         dispatch(itinerariesActions.getItinerariesFromCity(id))
       },[id])
+
+
+
     return(
         <>
         {itineraries.length>0 ? (itineraries.map(card=>

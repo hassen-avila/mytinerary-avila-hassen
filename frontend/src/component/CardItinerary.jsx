@@ -27,7 +27,7 @@ const ExpandMore = styled((props) => {
 
 export default function CardItinerary({card}){
 
-
+    console.log(card);
     const [expanded, setExpanded] = React.useState(false);
     let iconCash="💵 "
     const handleExpandClick = () => {
@@ -66,7 +66,9 @@ export default function CardItinerary({card}){
         <Tags tags={card.tags} key={card._id} /> 
         </CardContent>
         <CardActions disableSpacing className='action-card'>
-          <LikeComp card={card}/>
+
+          <LikeComp card={card} like={card.like}/>
+          
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
@@ -80,7 +82,7 @@ export default function CardItinerary({card}){
           <CardContent>
             <div className='itinerary'>
               
-              <Activity id={card._id}/>
+              <Activity id={card._id} />
               
               </div>
           </CardContent>
