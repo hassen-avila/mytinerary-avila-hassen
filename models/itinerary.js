@@ -5,7 +5,7 @@ const itinerarySchema = new mongoose.Schema({
         price:{type: Number, required: true},
         duration:{type: Number, required: true},
         user:{type: String, required: true},
-        like:{type: Number, required: true},
+        like:{type: Array, required: true},
         userImage:{type: String, required: true},
         activities:{type: Array, required: true},
         tags:{type: Array, require:true},

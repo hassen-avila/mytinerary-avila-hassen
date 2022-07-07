@@ -5,14 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Tags from '../component/Tags'
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import '../style/detailsPage.css'
 import Activity from './Activity';
-
+import LikeComp from '../component/LikeComp'
 
 
 const ExpandMore = styled((props) => {
@@ -67,9 +66,7 @@ export default function CardItinerary({card}){
         <Tags tags={card.tags} key={card._id} /> 
         </CardContent>
         <CardActions disableSpacing className='action-card'>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />{card.like}
-          </IconButton>
+          <LikeComp card={card}/>
           <ExpandMore
             expand={expanded}
             onClick={handleExpandClick}
