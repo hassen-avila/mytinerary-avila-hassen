@@ -3,7 +3,7 @@ const Itinerary = require('../models/itinerary')
 const commentControllers = {
 
     addComment: async (req, res) => {
-
+        
         const {userId , comment} = req.body
         const user = req.user.id
         try {
@@ -24,9 +24,10 @@ const commentControllers = {
     modifyComment: async (req, res) => {
         const {userId,comment} = req.body
         try {
-            const newComment = await Itinerary.findOneAndUpdate({"comments._id":userId}, {$set: {"comments.$.comment": comment }}, {new: true})
-            console.log(newComment)
-            res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
+            const itinerary = await Itinerary.findOneAndUpdate({"comments._id":userId}, {$set: {"comments.$.comment": comment }}, {new: true})
+            .populate("comments.userId",{photoUser:1, email:1, nameUser:1})
+            console.log(itinerary)
+            res.json({ success: true, response:itinerary.comments, message:"tu comentario a sido modificado" })
         }
         catch (error) {
             console.log(error)
@@ -36,8 +37,8 @@ const commentControllers = {
     },
 
     deleteComment: async (req, res) => {
-        console.log('REQ.PARAMS --------------------------------------')
-        console.log(req)
+        console.log('REQ------------------------------')
+        console.log(req.params);
         const userId = req.params.id
         try {
             const itinerary = await Itinerary

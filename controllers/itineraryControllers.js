@@ -43,8 +43,6 @@ const itineraryControllers={
     },
 
         getOneItinerary:async (req,res) => {
-            console.log('SADAS------------------');
-            console.log(req.params);
 
         const id=req.params.id
         let itine

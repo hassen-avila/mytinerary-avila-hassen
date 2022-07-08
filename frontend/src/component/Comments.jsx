@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect } from 'react';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-
+import Swal from 'sweetalert2'
 
 
 export default function Comments({card}){
@@ -13,11 +13,12 @@ export default function Comments({card}){
     const [inputText, setInputText]=useState("")  
     const [reload, setReload]=useState(false)
     const [idDelete, setIdDelete]=useState("")
+    const [modify, setModify]=useState("")
     const [comment, setComments]=useState(card.comments)
     const user= useSelector(store => {return store.userReducer.user})
     // let comment=card.comments;
     
-    
+    console.log(card.comments);
     
     useEffect(()  =>{
         dispatch(itinerariesActions.getOneItinerary(card._id))
@@ -26,7 +27,6 @@ export default function Comments({card}){
     },[reload])
     
     const itineraries= useSelector(store => {return store.itineraryReducer.getOneItinerary})
-    
        
     
     
@@ -50,6 +50,45 @@ export default function Comments({card}){
         const res = await dispatch(itinerariesActions.deleteComment(id))
         setComments(res.data.response)
         console.log(res)
+    }
+
+    async function toModify(id){
+        await Swal.fire({
+            title: 'Add your modify comment',
+            input: 'text',
+            
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Look up',
+            showLoaderOnConfirm: true,
+            
+            allowOutsideClick: ()  =>  !Swal.isLoading()
+          }).then((result) => {
+               
+             console.log(result.value) 
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: `Success`,
+              })
+            }
+            setModify(result.value)
+            modifyComment(id, result.value)
+          } 
+          )
+    }
+          console.log(modify)
+
+    async function modifyComment(id, value) {
+        const comments= {
+                comment: value,
+                userId: id
+            }
+        
+        let res= await dispatch(itinerariesActions.modifyComment(comments))
+        console.log(res);
+        setComments(res)
     }
 
     return(

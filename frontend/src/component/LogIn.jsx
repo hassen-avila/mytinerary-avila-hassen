@@ -72,6 +72,7 @@ export default function Login(){
           className="input-log"
           name="password"
           placeholder="Password"
+          type="password"
           required
         />
   
