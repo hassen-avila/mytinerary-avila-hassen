@@ -1,6 +1,6 @@
 import React from 'react'
 import '../style/detailsPage.css'
-
+import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import itinerariesActions from '../redux/action/itineraryAction'
 import CardItinerary from './CardItinerary';
@@ -13,9 +13,7 @@ export default function Itinerary({id}){
 
       
 
-      React.useEffect(()=>{
-        dispatch(itinerariesActions.getItinerariesFromCity(id))
-      },[id])
+      useEffect(()=>{dispatch(itinerariesActions.getItinerariesFromCity(id))},[id])
 
 
 

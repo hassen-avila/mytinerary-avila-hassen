@@ -59,8 +59,8 @@ const GoogleSignUp = ({selectCountry}) => {
       theme: "outline",
       size: "medium",
       type: "standard",
-      shape: "rectangular",
-      locale: "en",
+      text: "button",
+      width: "100%"
     });
   });
 

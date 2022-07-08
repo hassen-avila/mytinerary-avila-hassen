@@ -5,7 +5,7 @@ import { useState } from "react";
 import userActions from "../redux/action/userAction";
 import {useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2'
-import GoogleSignUp from "./GoogleSingApp";
+import GoogleSignUp from "./GoogleSignUp";
 
 function alerts(params, navigate) {
   if(params.data.success === false && params.data.from==="validator"){
@@ -215,20 +215,19 @@ if(res.data.success){
         <button
           className="button-log"
           type="summit"
-          style={{ backgroundColor: isMouseOver ? "black" : "white" }}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
           
           Sing in
         </button>
-        
+        <div  className="google-p">
+      <GoogleSignUp selectCountry={selectCountry}/>
+      </div>
         </form>
         
       </div>
-      <div  className="google-p">
-      <GoogleSignUp selectCountry={selectCountry}/>
-      </div>
+      
       </> 
     );
   }

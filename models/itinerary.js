@@ -10,6 +10,12 @@ const itinerarySchema = new mongoose.Schema({
         activities:{type: Array, required: true},
         tags:{type: Array, require:true},
         itinerary:{type: String, require:true},
+        comments:[
+                {
+                   comment:{type:String},
+                   userId:{type: mongoose.Types.ObjectId, ref:'users'}
+                }
+        ],
 })
 
 const Itinerary = mongoose.model("itineraries", itinerarySchema)

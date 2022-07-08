@@ -26,6 +26,7 @@ export default function Activity({id}){
 
     return(
         <>
+        
         {activities.length>0 ? (activities.map(card=>
           <div className='card' key={card.nameActivity} >
             <CardActivity card={card}/> 

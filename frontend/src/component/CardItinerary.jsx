@@ -12,7 +12,8 @@ import { styled } from '@mui/material/styles';
 import '../style/detailsPage.css'
 import Activity from './Activity';
 import LikeComp from '../component/LikeComp'
-
+import Typography from '@mui/material/Typography';
+import Comments from '../component/Comments'
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -67,7 +68,7 @@ export default function CardItinerary({card}){
         </CardContent>
         <CardActions disableSpacing className='action-card'>
 
-          <LikeComp card={card} like={card.like}/>
+          <LikeComp card={card}/>
           
           <ExpandMore
             expand={expanded}
@@ -80,11 +81,16 @@ export default function CardItinerary({card}){
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
+            <Typography variant='h6' sx={{ color: 'black', textAlign:'center', background:'white'}}>
+              ACTIVITIES
+            </Typography>
             <div className='itinerary'>
-              
-              <Activity id={card._id} />
-              
-              </div>
+            <Activity id={card._id} />
+            </div>
+            <Typography variant='h6' sx={{ color: 'black', textAlign:'center', background:'white'}}>
+              COMMENTS
+            </Typography>
+            <Comments card={card}/>
           </CardContent>
         </Collapse>
       </Card>

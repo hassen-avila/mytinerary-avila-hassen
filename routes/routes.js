@@ -1,11 +1,12 @@
 const Router = require('express').Router();
 const passport = require('../config/passport')
 const citiesControllers = require('../controllers/citiesControllers');
-const { getItinerary, getOneItinerary, modifyItinerary, addItinerary, multiplesIteneraries, removeItinerary, findItineraryFromCity, likeDislike } = require('../controllers/itineraryControllers');
+const { getItinerary, getOneItinerary, modifyItinerary, addItinerary, multiplesIteneraries, removeItinerary, findItineraryFromCity, likeDislike} = require('../controllers/itineraryControllers');
 const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} =citiesControllers
 const {signInUser,singUpUsers,verifyMail} = require('../controllers/userControllers')
 const {addActivity, getActivities, findActivityFromItinerary} = require('../controllers/activitiesControllers')
 const {verifyToken} = require('../controllers/userControllers')
+const {addComment, modifyComment,deleteComment} = require('../controllers/commentsController')
 const validator = require('../config/validator')
 
 
@@ -78,5 +79,14 @@ Router.route('/activity/itinerary/:id')
 
 Router.route('/itineraries/likes/:id')
 .put(passport.authenticate('jwt', {session:false}),likeDislike)
+
+//Route Comments
+
+Router.route('/itineraries/comment')
+.post(passport.authenticate('jwt', {session:false}),addComment)
+.put(passport.authenticate('jwt', {session:false}),modifyComment)
+
+Router.route('/itineraries/comment/:id')
+.post(passport.authenticate('jwt', {session:false}),deleteComment)
 
 module.exports = Router

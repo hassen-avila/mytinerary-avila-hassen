@@ -1,0 +1,39 @@
+.comment-conteiner{
+    display: flex;
+    padding: 1rem !important;
+}
+.image-comment{
+    height: 5rem;
+    width: 5rem;
+    object-fit: contain;
+}
+.text-comment{
+    margin-left: 1rem !important;
+    width: 70%;
+}
+.name-comment{
+    font-size: 1.5rem;
+    
+}
+.email-comment{
+    font-size: 1;
+    font-family: italic;
+}
+.comment{
+    font-size: 1.7;
+}
+.add-comment-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imput-comment{
+    font-size: 1.5;
+    font-family: arial;
+    height: 2rem;
+    width: 98%;
+}
+.actions-del{
+    display: flex;
+    flex-direction: column;
+}

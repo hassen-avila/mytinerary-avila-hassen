@@ -43,6 +43,9 @@ const itineraryControllers={
     },
 
         getOneItinerary:async (req,res) => {
+            console.log('SADAS------------------');
+            console.log(req.params);
+
         const id=req.params.id
         let itine
         let error = null
@@ -123,7 +126,7 @@ const itineraryControllers={
         let error= null
         try{
             info=await Itinerary.find({city:cityId})
-            .populate("city")
+            .populate("city").populate("comments.userId",{photoUser:1, email:1, nameUser:1})
         }catch (err) {error=err}
         res.json({
             response: error ? "ERROR" : {info},
@@ -133,12 +136,8 @@ const itineraryControllers={
     },
 
     likeDislike: async (req,res) => {
-        console.log('Respuesta de req');
-        console.log(req.params.id)
         let tineraryId = req.params.id 
         let user = req.user.id
-        console.log('Respuesta de user');
-        console.log(req.user.id)
         try { 
             let tinerary = await Itinerary.findOne({_id:tineraryId}) 
             console.log(tinerary);
