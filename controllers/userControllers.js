@@ -111,7 +111,7 @@ const UserControllers = {
                             res.json({
                                 success: false,
                                 from: from,
-                                message: "You have not registered with" + from + "if you want to enter with this method you must do the SingUp with" + from
+                                message: "You have not registered with " + from + " if you want to enter with this method you must do the SingUp with " + from
                             })
                         }
                     } else {

@@ -32,7 +32,7 @@ to:'/Cities',
 ];
 const settings = 
 [{
-  name: 'Sign In',
+  name: 'Sign Up',
   to:'/SingInPage',
 },
 {
