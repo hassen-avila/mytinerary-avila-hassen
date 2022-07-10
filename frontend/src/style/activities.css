@@ -14,7 +14,7 @@
     width: 20%;
     margin: 0.5rem;
 }
-.activity-image{
+.activity-image{ 
     height: 100%;
     width: 100%;
     padding: 1rem !important;
@@ -27,3 +27,22 @@
     align-items: center;
     width: 80%;
 }
+@media (max-width:604px){
+    .text{
+        font-size: 1rem;
+    }
+  }
+  @media (max-width:710px){
+    .activity-conteiner{
+        flex-direction: column;
+    }
+    .activity-image-conteiner{
+        height: 100%;
+        width: 70%;
+    }
+  }
+  @media (max-width:504px){
+    .description{
+        display:none;
+    }
+  }
