@@ -21,7 +21,7 @@ const itinerariesActions = {
                     {headers: {Authorization: "Bearer "+token}}
                     
                 )
-                console.log(res)
+                
                 return res
                 
             }catch (err) {

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+let urlMyTin = 'https://mytinerary-hassen.herokuapp.com/'
+//let urlMyTin ='http://localhost:4000/'
 
 
 const userActions = {

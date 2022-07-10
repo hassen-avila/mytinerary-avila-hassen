@@ -17,13 +17,12 @@ export default function Comments({card}){
     const [modify, setModify]=useState("")
     const [comment, setComments]=useState(card.comments)
     const user= useSelector(store => {return store.userReducer.user})
-    // let comment=card.comments;
+
     
-    console.log(card.comments);
+
     
     useEffect(()  =>{
         dispatch(itinerariesActions.getOneItinerary(card._id))
-        .then((res)=>console.log(res))
         
     },[reload])
     
@@ -40,7 +39,7 @@ export default function Comments({card}){
              userId: card._id,
              comment:inputText, 
             };
-            console.log(commentaries);
+
             const res = await dispatch(itinerariesActions.addComment(commentaries));
             Swal.fire({
                 title: `Comment created`,
@@ -74,7 +73,7 @@ export default function Comments({card}){
             allowOutsideClick: ()  =>  !Swal.isLoading()
           }).then((result) => {
                
-             console.log(result.value) 
+
             if (result.isConfirmed) {
               Swal.fire({
                 title: `Success`,
@@ -94,7 +93,7 @@ export default function Comments({card}){
             }
         
         let res= await dispatch(itinerariesActions.modifyComment(comments))
-        console.log(res);
+
         setComments(res)
     }
 

@@ -22,7 +22,6 @@ export default function Activity({id}){
         activitiesC()
       },[id])
 
-      console.log(activities);
 
     return(
         <>

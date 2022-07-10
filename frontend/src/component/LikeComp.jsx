@@ -22,7 +22,7 @@ export default function LikeComp({card}){
     const user=useSelector(store=>store.userReducer.user)
     
     
-         console.log(user)
+
     return(
         <>
         {user ?

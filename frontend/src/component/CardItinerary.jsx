@@ -28,7 +28,7 @@ const ExpandMore = styled((props) => {
 
 export default function CardItinerary({card}){
 
-    console.log(card);
+
     const [expanded, setExpanded] = React.useState(false);
     let iconCash="💵 "
     const handleExpandClick = () => {
